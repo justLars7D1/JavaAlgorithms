@@ -1,5 +1,17 @@
 package LeastSquares.function;
 
-public interface Function {
-    double evaluate(final double ... X);
+public abstract class Function {
+
+    String func;
+
+    public Function(String func) {
+        this.func = func;
+    }
+
+    public abstract double evaluate(final double ... X);
+
+    @Override
+    public String toString() {
+        return func;
+    }
 }

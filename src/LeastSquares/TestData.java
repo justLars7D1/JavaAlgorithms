@@ -12,11 +12,22 @@ public class TestData {
         final double[] xs = {0, 1, 2, 3, 4, 5};
         final double[] ys = {-1, 4, 3, 0, 2, 3};
 
-        Function one = X -> 1;
-        Function x = X -> X[0];
+        Function one = new Function("1") {
+            @Override
+            public double evaluate(double... X) {
+                return 1;
+            }
+        };
+
+        Function x = new Function("x") {
+            @Override
+            public double evaluate(double... X) {
+                return X[0];
+            }
+        };
 
         Basis basis = new Basis(one, x);
-        Function weight = X -> 1;
+        Function weight = one;
 
         LeastSquares leastSquares = LeastSquares.getInstance();
         double[] c = leastSquares.computeCoefficients(basis, weight, xs, ys);

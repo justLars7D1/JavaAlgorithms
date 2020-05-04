@@ -43,8 +43,9 @@ public class LinearEquation {
         StringBuilder res = new StringBuilder("l(x) = ");
 
         int numComponents = basis.getNumElements();
+        Function[] basisFunctions = basis.getBasisElements();
         for (int i = 0; i < numComponents; i++) {
-            res.append(coefficients[i]).append("*").append("φ(").append(i).append(")");
+            res.append(coefficients[i]).append("*").append(basisFunctions[i]);
             if (i + 1 != numComponents) {
                 res.append(" + ");
             }
