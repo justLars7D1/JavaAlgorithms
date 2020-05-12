@@ -132,6 +132,25 @@ public class Vector implements Cloneable {
         return coordinates;
     }
 
+    public double getPNorm(double p) {
+        double norm = 0;
+        for (double coordinate: coordinates) {
+            norm += Math.pow(Math.abs(coordinate), p);
+        }
+        return Math.pow(norm, 1/p);
+    }
+
+    public double getInfinityNorm() {
+        double norm = 0;
+        for (double coordinate: coordinates) {
+            double absCoord = Math.abs(coordinate);
+            if (absCoord > norm) {
+                norm = absCoord;
+            }
+        }
+        return norm;
+    }
+
     @Override
     public Object clone() {
         return new Vector(coordinates.clone());
@@ -169,4 +188,5 @@ public class Vector implements Cloneable {
 
         return vectorString.toString();
     }
+
 }

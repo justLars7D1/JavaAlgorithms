@@ -38,6 +38,17 @@ public class LinearEquation {
         return y;
     }
 
+    public double calculateRMSE(final double[] xs, final double[] ys) {
+        assert xs.length == ys.length;
+
+        double MSE = 0;
+        for (int i = 0; i < xs.length; i++) {
+            MSE += Math.pow(ys[i] - evaluate(xs[i]), 2);
+        }
+
+        return Math.sqrt(MSE);
+    }
+
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder("l(x) = ");
