@@ -1,5 +1,7 @@
 package LinearAlgebra;
 
+import java.util.Arrays;
+
 public class Matrix {
 
     private final double[][] grid;
@@ -10,6 +12,10 @@ public class Matrix {
 
     public Matrix(final int i, final int j) {
         grid = new double[i][j];
+    }
+
+    public Matrix(final int[] size) {
+        grid = new double[size[0]][size[1]];
     }
 
     public Matrix(final Vector vector) {
@@ -31,6 +37,10 @@ public class Matrix {
     }
 
     public Matrix multiply(Matrix otherMatrix) {
+        return otherMatrix.swappedMultiply(this);
+    }
+
+    private Matrix swappedMultiply(Matrix otherMatrix) {
         int[] size = getSize(); int[] otherSize = otherMatrix.getSize();
         assert size[1] == otherSize[0];
 
@@ -75,4 +85,25 @@ public class Matrix {
         return new int[] {grid.length, grid[0].length};
     }
 
+    @Override
+    public Object clone() {
+        int numRows = grid.length; int numCols = grid[0].length;
+        double[][] newGrid = new double[numRows][numCols];
+        for (int i = 0; i < numRows; i++) {
+            newGrid[i] = grid[i].clone();
+        }
+        return new Matrix(newGrid);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        for (double[] doubles : grid) {
+            for (int j = 0; j < grid[0].length; j++) {
+                str.append(doubles[j]).append(" ");
+            }
+            str.append("\n");
+        }
+        return str.toString();
+    }
 }
