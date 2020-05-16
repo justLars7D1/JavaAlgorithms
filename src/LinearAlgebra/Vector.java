@@ -61,6 +61,14 @@ public class Vector implements Cloneable {
         }
     }
 
+    public void scale(final double scaleFactor) {
+        int dimensions = getDimensions();
+        for (int i = 0; i < dimensions; i++) {
+            coordinates[i] *= scaleFactor;
+        }
+    }
+
+
     public Vector getAdded(Vector otherVector) {
         Vector copyOfCurrentVector = (Vector) clone();
         copyOfCurrentVector.add(otherVector);
@@ -83,6 +91,12 @@ public class Vector implements Cloneable {
         Vector copyOfCurrentVector = (Vector) clone();
         copyOfCurrentVector.divide(otherVector);
         return copyOfCurrentVector;
+    }
+
+    public Vector getScaled(final double scaleFactor) {
+        Vector copy = (Vector) clone();
+        copy.scale(scaleFactor);
+        return copy;
     }
 
     public double getDotProduct(Vector otherVector) {

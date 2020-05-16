@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinearAlgebra/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/Vector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinearAlgebra/Vector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +50,23 @@
       <recent name="D:\Projects\JavaAlgorithms\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LUDecomposition">
+  <component name="RunManager" selected="Application.GramSchmidt">
     <configuration name="Bla" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Bla" />
       <module name="JavaAlgorithms" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GramSchmidt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LinearAlgebra.GramSchmidt" />
+      <module name="JavaAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LinearAlgebra.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -99,6 +113,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GramSchmidt" />
         <item itemvalue="Application.LUDecomposition" />
         <item itemvalue="Application.Bla" />
         <item itemvalue="Application.TestData" />
@@ -133,7 +148,8 @@
       <workItem from="1588857284181" duration="1448000" />
       <workItem from="1589297318279" duration="951000" />
       <workItem from="1589318794873" duration="50000" />
-      <workItem from="1589448376626" duration="3534000" />
+      <workItem from="1589448376626" duration="4147000" />
+      <workItem from="1589632761659" duration="2385000" />
     </task>
     <servers />
   </component>
@@ -141,46 +157,50 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="549" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589634932640">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589634932640" />
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1589450035043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589450035043" />
-    <state width="1493" height="307" key="GridCell.Tab.0.bottom" timestamp="1589451949041">
+    <state width="1493" height="377" key="GridCell.Tab.0.bottom" timestamp="1589635151043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="307" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589451949041" />
-    <state width="1493" height="307" key="GridCell.Tab.0.center" timestamp="1589451949040">
+    <state width="1493" height="377" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589635151043" />
+    <state width="1493" height="377" key="GridCell.Tab.0.center" timestamp="1589635151043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="307" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589451949040" />
-    <state width="1493" height="307" key="GridCell.Tab.0.left" timestamp="1589451949040">
+    <state width="1493" height="377" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589635151043" />
+    <state width="1493" height="377" key="GridCell.Tab.0.left" timestamp="1589635151042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="307" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589451949040" />
-    <state width="1493" height="307" key="GridCell.Tab.0.right" timestamp="1589451949040">
+    <state width="1493" height="377" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589635151042" />
+    <state width="1493" height="377" key="GridCell.Tab.0.right" timestamp="1589635151043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="307" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589451949040" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1589449646183">
+    <state width="1493" height="377" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589635151043" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1589634788541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589449646183" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1589449646182">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589634788541" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1589634788541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589449646182" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1589449646182">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1589634788541" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1589634788541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589449646182" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1589449646183">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1589634788541" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1589634788541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589449646183" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1589318836097">
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1589634788541" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1589632767523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589318836097" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589632767523" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1588604158590">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
