@@ -3,16 +3,24 @@ package LinearAlgebra;
 public class GramSchmidt {
 
     public static Matrix orthogonalise(Matrix m) {
+        return orthogonaliseQR(m)[0];
+    }
 
-        Matrix orthogonalisedM = (Matrix) m.clone();
-        int[] size = orthogonalisedM.getSize();
+    public static Matrix[] orthogonaliseQR(Matrix m) {
+
+        Matrix[] QR = new Matrix[2];
+
+        Matrix Q = (Matrix) m.clone();
+        int[] size = Q.getSize();
+
+        Matrix R = new Matrix(size[1], size[1]);
 
         Vector[] columnVectors = new Vector[size[1]];
 
         for (int j = 0; j < size[1]; j++) {
             double[] columnVectorValues = new double[size[0]];
             for (int i = 0; i < size[0]; i++) {
-                columnVectorValues[i] = orthogonalisedM.get(i, j);
+                columnVectorValues[i] = Q.get(i, j);
             }
             columnVectors[j] = new Vector(columnVectorValues);
         }
@@ -22,25 +30,29 @@ public class GramSchmidt {
 
             for (int k = 0; k < j; k++) {
                 Vector colVec = columnVectors[k];
-                double factor = (columnVectors[j].getDotProduct(colVec)) / (colVec.getDotProduct(colVec));
+                double factor = (columnVectors[j].getDotProduct(colVec));
+                R.set(k, j, factor);
                 curVector.subtract(colVec.getScaled(factor));
             }
 
-            Vector normalizedVec = curVector.getNormalized();
+            R.set(j, j, curVector.getMagnitude());
+            curVector.normalize();
 
             for (int i = 0; i < size[0]; i++) {
-                orthogonalisedM.set(i, j, normalizedVec.get(i));
+                Q.set(i, j, curVector.get(i));
             }
 
         }
 
-        return orthogonalisedM;
+        QR[0] = Q;  //This is Q
+        QR[1] = R;  //This is R
+        return QR;
     }
 
     public static void main(String[] args) {
-        double[][] mData = {{2, -1, 1}, {-1, 3, -2}, {1, 2, 3}};
+        double[][] mData = {{-1, -1, 1}, {1, 3, 3}, {-1, -1, 5}, {1, 3, 7}};
         Matrix m = new Matrix(mData);
-        System.out.println(orthogonalise(m));
+        System.out.println(orthogonaliseQR(m)[0]);
     }
 
 }

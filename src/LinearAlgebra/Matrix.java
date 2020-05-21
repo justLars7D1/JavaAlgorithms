@@ -37,10 +37,6 @@ public class Matrix {
     }
 
     public Matrix multiply(Matrix otherMatrix) {
-        return otherMatrix.swappedMultiply(this);
-    }
-
-    private Matrix swappedMultiply(Matrix otherMatrix) {
         int[] size = getSize(); int[] otherSize = otherMatrix.getSize();
         assert size[1] == otherSize[0];
 
@@ -100,7 +96,7 @@ public class Matrix {
         StringBuilder str = new StringBuilder();
         for (double[] doubles : grid) {
             for (int j = 0; j < grid[0].length; j++) {
-                str.append(doubles[j]).append(" ");
+                str.append(String.format("%5f", doubles[j])).append(" ");
             }
             str.append("\n");
         }
