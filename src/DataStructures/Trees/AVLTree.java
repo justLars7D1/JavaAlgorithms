@@ -8,17 +8,17 @@ import java.util.List;
 public class AVLTree<E> {
 
     /**
+     * The comparator which we use for the ordering of the tree
+     */
+    private final Comparator<E> comparator;
+    /**
      * The fake root node we create as a starting point of the tree, with value "null"
      */
     private BSTNode root;
 
     /**
-     * The comparator which we use for the ordering of the tree
-     */
-    private final Comparator<E> comparator;
-
-    /**
      * Constuctor - Sets the comparator and adds the null-value to the root node
+     *
      * @param comparator The comparator
      */
     public AVLTree(Comparator<E> comparator) {
@@ -26,8 +26,36 @@ public class AVLTree<E> {
         this.comparator = comparator;
     }
 
+    public static void main(String[] args) {
+
+        Integer[] data = {1,1,2,3,4,5,6,7,8,9,10};
+
+        Comparator<Integer> comparator = (o1, o2) -> {
+            if (o1 < o2) {
+                return -1;
+            } else if (o1.equals(o2)) {
+                return 0;
+            } else {
+                return 1;
+            }
+        };
+
+        AVLTree<Integer> searchTree = new AVLTree<>(comparator);
+        searchTree.add(data);
+
+        System.out.println(searchTree);
+
+        for (int i = 10; i > 0; i--) {
+            System.out.println("Deleting " + i + ":");
+            searchTree.delete(i);
+            System.out.println(searchTree);
+        }
+
+    }
+
     /**
      * Traverses the tree in a pre-order way
+     *
      * @return The list of elements sorted in a pre-order way
      */
     public List<E> preOrderTraverse() {
@@ -36,6 +64,7 @@ public class AVLTree<E> {
 
     /**
      * Traverses the tree in a post-order way
+     *
      * @return The list of elements sorted in a post-order way
      */
     public List<E> postOrderTraverse() {
@@ -44,11 +73,12 @@ public class AVLTree<E> {
 
     /**
      * Traverses the tree in a in-order way
+     *
      * @return The list of elements sorted in a in-order way
      */
     public List<E> inOrderTraverse() {
         List<E> values = new ArrayList<>();
-        for (BSTNode node: getRoot().inOrderTraverse()) {
+        for (BSTNode node : getRoot().inOrderTraverse()) {
             values.add(node.getData());
         }
         return values;
@@ -56,6 +86,7 @@ public class AVLTree<E> {
 
     /**
      * Adds a new element of data to the tree
+     *
      * @param data The data
      */
     public void add(E data) {
@@ -66,31 +97,32 @@ public class AVLTree<E> {
             nodes.add(node);
             root.setChildren(nodes);
         } else {
-            System.out.println("Inserting " + data + ":");
             getRoot().addChild(node);
-            System.out.println(getRoot());
         }
     }
 
     /**
      * Delete a value from the tree
+     *
      * @param value The value to delete
      */
     public void delete(E value) {
         BSTNode valueNode = getRoot().findNode(value);
+        BSTNode parentOfValueNode = (BSTNode) valueNode.getParent();
+
         // If no children
         if (valueNode.isExternal() && valueNode != root) {
             deleteNodeFromTree(valueNode);
-        // If only one child
+            // If only one child
         } else if (valueNode.size() == 1) {
             // Get the child, remove the connection with their parent
             BSTNode childNode = (valueNode.hasLeftChild()) ? valueNode.getLeftChild() : valueNode.getRightChild();
-            int index = valueNode.getChildren().indexOf(childNode);
 
             deleteNodeFromTree(childNode);
 
             // Delete the parent from the tree
             BSTNode parentNode = (BSTNode) valueNode.getParent();
+            int index = parentNode.getChildren().indexOf(valueNode);
             deleteNodeFromTree(valueNode);
 
             // And add the child to it's parent
@@ -104,10 +136,14 @@ public class AVLTree<E> {
             deleteNodeFromTree(successorNode);
             valueNode.children.set(1, rightChild);
         }
+
+        parentOfValueNode.rebalanceDeletion();
+
     }
 
     /**
      * Check if the tree contains a value
+     *
      * @param value The value to look for
      * @return A boolean, specifying whether the value was found or not
      */
@@ -117,6 +153,7 @@ public class AVLTree<E> {
 
     /**
      * Find all values in the tree between a given range
+     *
      * @param minValue The (inclusive) minimal value
      * @param maxValue The (inclusive) maximum value
      * @return All elements within the range
@@ -124,7 +161,7 @@ public class AVLTree<E> {
     public List<E> findInRange(E minValue, E maxValue) {
         List<E> results = new ArrayList<>();
         List<BSTNode> nodes = getRoot().findInRange(minValue, maxValue);
-        for (BSTNode node: nodes) {
+        for (BSTNode node : nodes) {
             results.add(node.getData());
         }
         return results;
@@ -132,9 +169,10 @@ public class AVLTree<E> {
 
     /**
      * Adds a node to the tree, enforcing that the first node to be added to the tree is the root node
-     * @param node The node to add
+     *
+     * @param node       The node to add
      * @param parentNode It's parent node
-     * @param index The index of the node to the parent
+     * @param index      The index of the node to the parent
      */
     private void addNodeToTree(BSTNode node, BSTNode parentNode, int index) {
         if (parentNode == root) {
@@ -158,17 +196,19 @@ public class AVLTree<E> {
 
     /**
      * Add a list of elements to the tree
+     *
      * @param data The list of elements
      */
     @SafeVarargs
     public final void add(E... data) {
-        for (E dataPoint: data) {
+        for (E dataPoint : data) {
             add(dataPoint);
         }
     }
 
     /**
      * String representation of the tree
+     *
      * @return The representation
      */
     @Override
@@ -182,6 +222,7 @@ public class AVLTree<E> {
 
     /**
      * Get the actual root, not the fake null one
+     *
      * @return The actual root
      */
     private BSTNode getRoot() {
@@ -202,6 +243,7 @@ public class AVLTree<E> {
 
         /**
          * Constructor
+         *
          * @param data The data that the node contains
          */
         public BSTNode(E data) {
@@ -210,6 +252,7 @@ public class AVLTree<E> {
 
         /**
          * Adds a child to the node's subtree
+         *
          * @param nodeToAdd The node to add to the subtree
          */
         public void addChild(BSTNode nodeToAdd) {
@@ -237,7 +280,7 @@ public class AVLTree<E> {
             updateHeight();
 
             // Now we check if it's unbalanced
-            int balanceNumber = getHeight(getLeftChild()) - getHeight(getRightChild());
+            int balanceNumber = calculateBalance();
             E dataToAdd = nodeToAdd.getData();
             restoreBalance(balanceNumber, dataToAdd, this);
 
@@ -246,10 +289,20 @@ public class AVLTree<E> {
         }
 
         /**
+         * Calculates the balance of the AVL-subtree
+         *
+         * @return The balance
+         */
+        private int calculateBalance() {
+            return getHeight(getLeftChild()) - getHeight(getRightChild());
+        }
+
+        /**
          * Restore the balance in the tree in an AVL-manner
+         *
          * @param balanceNumber The balance number (difference between height of left and right nodes)
-         * @param dataToAdd The data to add to the tree
-         * @param subTreeRoot The root of the subtree
+         * @param dataToAdd     The data to add to the tree
+         * @param subTreeRoot   The root of the subtree
          */
         private void restoreBalance(int balanceNumber, E dataToAdd, BSTNode subTreeRoot) {
             if (balanceNumber > 1 && hasLeftChild() && comparator.compare(dataToAdd, getLeftChild().getData()) < 0) {
@@ -260,7 +313,7 @@ public class AVLTree<E> {
                 //Right Right case
                 leftRotation(subTreeRoot);
             }
-            if (balanceNumber > 1 && hasLeftChild()  && comparator.compare(dataToAdd, getLeftChild().getData()) > 0) {
+            if (balanceNumber > 1 && hasLeftChild() && comparator.compare(dataToAdd, getLeftChild().getData()) > 0) {
                 //Left Right case
                 if (subTreeRoot.hasLeftChild()) leftRotation(subTreeRoot.getLeftChild());
                 rightRotation(subTreeRoot);
@@ -274,9 +327,11 @@ public class AVLTree<E> {
 
         /**
          * Perform a right rotation in an AVL-manner
+         *
          * @param subTreeRoot The subtree to perform the rotation on
          */
         private void rightRotation(BSTNode subTreeRoot) {
+
             BSTNode rootParent = (BSTNode) subTreeRoot.getParent();
             int index = rootParent.children.indexOf(subTreeRoot);
 
@@ -290,6 +345,7 @@ public class AVLTree<E> {
             // Update the parents
             left.parent = rootParent;
             subTreeRoot.parent = left;
+            if (rightOfLeft != null) rightOfLeft.parent = subTreeRoot;
 
             // We then update their height correspondingly
             subTreeRoot.updateHeight();
@@ -301,9 +357,11 @@ public class AVLTree<E> {
 
         /**
          * Perform a left rotation in an AVL-manner
+         *
          * @param subTreeRoot The subtree to perform the rotation on
          */
         private void leftRotation(BSTNode subTreeRoot) {
+
             BSTNode rootParent = (BSTNode) subTreeRoot.getParent();
             int index = rootParent.children.indexOf(subTreeRoot);
 
@@ -317,6 +375,7 @@ public class AVLTree<E> {
             // Update the parents
             right.parent = rootParent;
             subTreeRoot.parent = right;
+            if (leftOfRight != null) leftOfRight.parent = subTreeRoot;
 
             // We then update their height correspondingly
             subTreeRoot.updateHeight();
@@ -329,11 +388,55 @@ public class AVLTree<E> {
          * Update the height of the node within the tree
          */
         private void updateHeight() {
-            height = 1 + Math.max(getHeight(getLeftChild()), getHeight(getRightChild()));
+            int heightLeft = (hasLeftChild()) ? getHeight(getLeftChild()) : 0;
+            int heightRight = (hasRightChild()) ? getHeight(getRightChild()) : 0;
+            height = 1 + Math.max(heightLeft, heightRight);
+        }
+
+        /**
+         * Rebalance the BST after a deletion, to make it an AVL-tree again
+         */
+        private void rebalanceDeletion() {
+
+            if (this != root) {
+
+                updateHeight();
+
+                int balanceNumber = calculateBalance();
+                BSTNode leftNode = getLeftChild();
+                BSTNode rightNode = getRightChild();
+
+                // Left Left Case
+                if (balanceNumber > 1 && leftNode.calculateBalance() >= 0) {
+                    rightRotation(this);
+                }
+
+                // Left Right Case
+                if (balanceNumber > 1 && leftNode.calculateBalance() < 0) {
+                    leftRotation(leftNode);
+                    rightRotation(this);
+                }
+
+                // Right Right Case
+                if (balanceNumber < -1 && rightNode.calculateBalance() < 0) {
+                    leftRotation(this);
+                }
+
+                // Right Left Case
+                if (balanceNumber < -1 && rightNode.calculateBalance() > 0) {
+                    rightRotation(rightNode);
+                    leftRotation(this);
+                }
+
+                if (getParent() != root) ((BSTNode) getParent()).rebalanceDeletion();
+
+            }
+
         }
 
         /**
          * Check if the subtree of a node contains a value
+         *
          * @param value The value to look for
          * @return Whether the node contains the value
          */
@@ -352,6 +455,7 @@ public class AVLTree<E> {
 
         /**
          * Find a node that contains a specific value - We assume the value exists within the tree
+         *
          * @param value The value to find then node for
          * @return THe node with the value
          */
@@ -369,6 +473,7 @@ public class AVLTree<E> {
 
         /**
          * Find all nodes that have a value within a range of values of the current subtree
+         *
          * @param minValue The (inclusive) minimal value
          * @param maxValue The (inclusive) maximum value
          * @return The list of nodes
@@ -400,6 +505,7 @@ public class AVLTree<E> {
 
         /**
          * Helper method for recursive in-order traversal method
+         *
          * @param valList The list of values to add to
          */
         private void inOrderHelper(List<BSTNode> valList) {
@@ -410,6 +516,7 @@ public class AVLTree<E> {
 
         /**
          * Traverse the subtree of a current node in an in-order manner
+         *
          * @return The list containing all values in an in-order sorted way
          */
         public List<BSTNode> inOrderTraverse() {
@@ -420,6 +527,7 @@ public class AVLTree<E> {
 
         /**
          * Get the left child
+         *
          * @return The left child
          */
         public BSTNode getLeftChild() {
@@ -428,6 +536,7 @@ public class AVLTree<E> {
 
         /**
          * Get the right child
+         *
          * @return The right child
          */
         public BSTNode getRightChild() {
@@ -436,6 +545,7 @@ public class AVLTree<E> {
 
         /**
          * Check if there exists a left child
+         *
          * @return Whether there exists a left child or not
          */
         public boolean hasLeftChild() {
@@ -444,6 +554,7 @@ public class AVLTree<E> {
 
         /**
          * Check if there exists a right child
+         *
          * @return Whether there exists a right child or not
          */
         public boolean hasRightChild() {
@@ -452,6 +563,7 @@ public class AVLTree<E> {
 
         /**
          * Get the data of a node
+         *
          * @return The data
          */
         @Override
@@ -461,6 +573,7 @@ public class AVLTree<E> {
 
         /**
          * Set the data of a node
+         *
          * @param data The data
          */
         @Override
@@ -470,12 +583,13 @@ public class AVLTree<E> {
 
         /**
          * Get the number of children that a node has
+         *
          * @return The number of children
          */
         @Override
         protected int size() {
             int numNull = 0;
-            for (AbstractTreeNode<E> child: children) {
+            for (AbstractTreeNode<E> child : children) {
                 if (child == null) numNull++;
             }
             return 2 - numNull;
@@ -483,6 +597,7 @@ public class AVLTree<E> {
 
         /**
          * Check if the node is the root
+         *
          * @return Whether the node is a root or not
          */
         @Override
@@ -492,6 +607,7 @@ public class AVLTree<E> {
 
         /**
          * Check if the node is external
+         *
          * @return Whether the node is external or not
          */
         @Override
@@ -501,6 +617,7 @@ public class AVLTree<E> {
 
         /**
          * Check if the node is internal
+         *
          * @return Whether the node is internal or not
          */
         @Override
@@ -510,6 +627,7 @@ public class AVLTree<E> {
 
         /**
          * Get the parent of a node
+         *
          * @return The parent of a node
          */
         @Override
@@ -519,6 +637,7 @@ public class AVLTree<E> {
 
         /**
          * Get the height of a node
+         *
          * @param node The node for which the height must be found
          * @return The height of the node
          */
@@ -529,6 +648,7 @@ public class AVLTree<E> {
 
         /**
          * String representation of the node's subtree
+         *
          * @return The representation
          */
         @Override
@@ -538,44 +658,22 @@ public class AVLTree<E> {
 
         /**
          * Recursive method for the toString method
+         *
          * @param depth The depth of the current node
          * @return The representation
          */
         @Override
         protected String toString(int depth) {
-            StringBuilder strData = new StringBuilder("[value: " + data + ", height: " + height + "]\n");
+            StringBuilder strData = new StringBuilder("[val: " + data + ", p: " + getParent().data + "]\n");
             for (int j = 0; j < children.size(); j++) {
                 AbstractTreeNode<E> child = children.get(j);
                 if (child != null) {
                     strData.append("\t".repeat(Math.max(0, depth)));
-                    strData.append("Child ").append(j).append(": ").append(child.toString(depth+1));
+                    strData.append("Child ").append(j).append(": ").append(child.toString(depth + 1));
                 }
             }
             return strData.toString();
         }
-    }
-
-    public static void main(String[] args) {
-
-        Integer[] data = {10,9,8,7,6,5,4,3,2,1};
-
-        Comparator<Integer> comparator = (o1, o2) -> {
-            if (o1 < o2) {
-                return -1;
-            } else if (o1.equals(o2)) {
-                return 0;
-            } else {
-                return 1;
-            }
-        };
-
-        AVLTree<Integer> searchTree = new AVLTree<>(comparator);
-        searchTree.add(data);
-
-        System.out.println(searchTree);
-
-        System.out.println(searchTree.inOrderTraverse());
-
     }
 
 }
