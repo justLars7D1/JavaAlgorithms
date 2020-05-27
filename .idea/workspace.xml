@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataStructures/Trees/AbstractTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructures/Trees/AbstractTreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataStructures/Trees/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructures/Trees/AVLTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataStructures/Trees/AVLTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructures/Trees/AVLTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +161,7 @@
       <workItem from="1590512358727" duration="13026000" />
       <workItem from="1590562935051" duration="9222000" />
       <workItem from="1590572503874" duration="61000" />
-      <workItem from="1590585225544" duration="7997000" />
+      <workItem from="1590585225544" duration="9329000" />
     </task>
     <servers />
   </component>
