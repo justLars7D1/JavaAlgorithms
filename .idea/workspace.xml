@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DataStructures/Trees/BSTNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DataStructures/Trees/BinarySearchTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/DataStructures/Trees/BinarySearchTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataStructures/Trees/BSTNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataStructures/Trees/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructures/Trees/BinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataStructures/Trees/AbstractTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructures/Trees/AbstractTreeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataStructures/Trees/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStructures/Trees/AVLTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +55,9 @@
       <recent name="D:\Projects\JavaAlgorithms\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BinarySearchTree">
-    <configuration name="BinarySearchTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DataStructures.Trees.BinarySearchTree" />
+  <component name="RunManager" selected="Application.AVLTree">
+    <configuration name="AVLTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DataStructures.Trees.AVLTree" />
       <module name="JavaAlgorithms" />
       <extension name="coverage">
         <pattern>
@@ -119,7 +117,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BinarySearchTree" />
+        <item itemvalue="Application.AVLTree" />
         <item itemvalue="Application.QRMethod" />
         <item itemvalue="Application.GramSchmidt" />
         <item itemvalue="Application.Bla" />
@@ -162,7 +160,9 @@
       <workItem from="1589830072025" duration="6000" />
       <workItem from="1590062866553" duration="5875000" />
       <workItem from="1590512358727" duration="13026000" />
-      <workItem from="1590562935051" duration="8557000" />
+      <workItem from="1590562935051" duration="9222000" />
+      <workItem from="1590572503874" duration="61000" />
+      <workItem from="1590585225544" duration="7997000" />
     </task>
     <servers />
   </component>
@@ -178,46 +178,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589634932640" />
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1590517380478">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1590587119591">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590517380478" />
-    <state width="1493" height="247" key="GridCell.Tab.0.bottom" timestamp="1590571501539">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590587119591" />
+    <state width="1493" height="464" key="GridCell.Tab.0.bottom" timestamp="1590593373180">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590571501539" />
-    <state width="1493" height="247" key="GridCell.Tab.0.center" timestamp="1590571501539">
+    <state width="1493" height="464" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590593373180" />
+    <state width="1493" height="464" key="GridCell.Tab.0.center" timestamp="1590593373180">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590571501539" />
-    <state width="1493" height="247" key="GridCell.Tab.0.left" timestamp="1590571501539">
+    <state width="1493" height="464" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590593373180" />
+    <state width="1493" height="464" key="GridCell.Tab.0.left" timestamp="1590593373180">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590571501539" />
-    <state width="1493" height="247" key="GridCell.Tab.0.right" timestamp="1590571501539">
+    <state width="1493" height="464" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590593373180" />
+    <state width="1493" height="464" key="GridCell.Tab.0.right" timestamp="1590593373180">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590571501539" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1590566853380">
+    <state width="1493" height="464" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590593373180" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1590572167549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590566853380" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1590566853380">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590572167549" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1590572167548">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1590566853380" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1590566853379">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1590572167548" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1590572167548">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1590566853379" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1590566853380">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1590572167548" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1590572167549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1590566853380" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1590563015063">
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1590572167549" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1590585224801">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590563015063" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590585224801" />
     <state x="498" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1590569654936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

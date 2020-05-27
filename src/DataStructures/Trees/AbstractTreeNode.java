@@ -81,9 +81,7 @@ public abstract class AbstractTreeNode<E> {
         for (int j = 0; j < children.size(); j++) {
             AbstractTreeNode<E> child = children.get(j);
             if (child != null) {
-                for (int i = 0; i < depth; i++) {
-                    strData.append("\t");
-                }
+                strData.append("\t".repeat(Math.max(0, depth)));
                 strData.append("Child ").append(j).append(": ").append(child.toString(depth+1));
             }
         }

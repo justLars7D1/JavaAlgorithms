@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class BinarySearchTree<E> {
+public class AVLTree<E> {
 
     private BSTNode root;
     private final Comparator<E> comparator;
 
-    public BinarySearchTree(Comparator<E> comparator) {
+    public AVLTree(Comparator<E> comparator) {
         this.root = new BSTNode(null, comparator);
         this.comparator = comparator;
     }
@@ -25,7 +25,7 @@ public class BinarySearchTree<E> {
 
     public List<E> inOrderTraverse() {
         List<E> values = new ArrayList<>();
-        for (BSTNode node: root.inOrderTraverse()) {
+        for (BSTNode node: getRoot().inOrderTraverse()) {
             values.add(node.getData());
         }
         return values;
@@ -39,7 +39,9 @@ public class BinarySearchTree<E> {
             nodes.add(node);
             root.setChildren(nodes);
         } else {
+            System.out.println("Inserting " + data + ":");
             getRoot().addChild(node);
+            System.out.println(getRoot());
         }
     }
 
@@ -74,7 +76,7 @@ public class BinarySearchTree<E> {
     }
 
     public boolean contains(E value) {
-        return root.contains(value);
+        return getRoot().contains(value);
     }
 
     public List<E> findInRange(E minValue, E maxValue) {
@@ -122,32 +124,10 @@ public class BinarySearchTree<E> {
         return (BSTNode) root.getChildren().get(0);
     }
 
-    public static void main(String[] args) {
-
-        Integer[] data = {5, 2, 4, 6, 8, -1, 45};
-
-        Comparator<Integer> comparator = (o1, o2) -> {
-            if (o1 < o2) {
-                return -1;
-            } else if (o1.equals(o2)) {
-                return 0;
-            } else {
-                return 1;
-            }
-        };
-
-        BinarySearchTree<Integer> searchTree = new BinarySearchTree<>(comparator);
-        searchTree.add(data);
-
-        System.out.println(searchTree);
-
-        System.out.println(searchTree.findInRange(-1, -1));
-
-    }
-
     class BSTNode extends AbstractTreeNode<E> {
 
         private final Comparator<E> orderMode;
+        private int height = 1;
 
         // We say that the left child is children[0] and the right child is children[1].
 
@@ -162,6 +142,7 @@ public class BinarySearchTree<E> {
         }
 
         public void addChild(BSTNode nodeToAdd) {
+            // First we insert it like in a BST
             int comparison = orderMode.compare(data, nodeToAdd.data);
             if (comparison <= 0) {
                 if (!hasRightChild()) {
@@ -178,6 +159,85 @@ public class BinarySearchTree<E> {
                     getLeftChild().addChild(nodeToAdd);
                 }
             }
+
+            // We update the height for the current node and the ones on it's path
+            updateHeight();
+
+            // Now we check if it's unbalanced
+            int balanceNumber = getHeight(getLeftChild()) - getHeight(getRightChild());
+            E dataToAdd = nodeToAdd.getData();
+            restoreBalance(balanceNumber, dataToAdd, this);
+
+        }
+
+        private void restoreBalance(int balanceNumber, E dataToAdd, BSTNode subTreeRoot) {
+            if (balanceNumber > 1 && hasLeftChild() && comparator.compare(dataToAdd, getLeftChild().getData()) < 0) {
+                //Left Left case
+                rightRotation(subTreeRoot);
+            }
+            if (balanceNumber < -1 && hasRightChild() && comparator.compare(dataToAdd, getRightChild().getData()) > 0) {
+                //Right Right case
+                leftRotation(subTreeRoot);
+            }
+            if (balanceNumber > 1 && hasLeftChild()  && comparator.compare(dataToAdd, getLeftChild().getData()) > 0) {
+                //Left Right case
+                if (subTreeRoot.hasLeftChild()) leftRotation(subTreeRoot.getLeftChild());
+                rightRotation(subTreeRoot);
+            }
+            if (balanceNumber < -1 && hasRightChild() && comparator.compare(dataToAdd, getRightChild().getData()) < 0) {
+                //Right Left case
+                if (subTreeRoot.hasRightChild()) rightRotation(subTreeRoot.getRightChild());
+                leftRotation(subTreeRoot);
+            }
+        }
+
+        private void rightRotation(BSTNode subTreeRoot) {
+            BSTNode rootParent = (BSTNode) subTreeRoot.getParent();
+            int index = rootParent.children.indexOf(subTreeRoot);
+
+            BSTNode left = subTreeRoot.getLeftChild();
+            BSTNode rightOfLeft = left.getRightChild();
+
+            // The actual rotation
+            left.children.set(1, subTreeRoot);
+            subTreeRoot.children.set(0, rightOfLeft);
+
+            // Update the parents
+            left.parent = rootParent;
+            subTreeRoot.parent = left;
+
+            // We then update their height correspondingly
+            subTreeRoot.updateHeight();
+            left.updateHeight();
+
+            // Add the new one actual root to the root
+            rootParent.children.set(index, left);
+        }
+
+        private void leftRotation(BSTNode subTreeRoot) {
+            BSTNode rootParent = (BSTNode) subTreeRoot.getParent();
+            int index = rootParent.children.indexOf(subTreeRoot);
+
+            BSTNode right = subTreeRoot.getRightChild();
+            BSTNode leftOfRight = right.getLeftChild();
+
+            // The actual rotation
+            right.children.set(0, subTreeRoot);
+            subTreeRoot.children.set(1, leftOfRight);
+
+            // Update the parents
+            right.parent = rootParent;
+            subTreeRoot.parent = right;
+
+            // We then update their height correspondingly
+            subTreeRoot.updateHeight();
+            right.updateHeight();
+
+            rootParent.children.set(index, right);
+        }
+
+        private void updateHeight() {
+            height = 1 + Math.max(getHeight(getLeftChild()), getHeight(getRightChild()));
         }
 
         public boolean contains(E value) {
@@ -296,6 +356,51 @@ public class BinarySearchTree<E> {
         protected AbstractTreeNode<E> getParent() {
             return super.getParent();
         }
+
+        private int getHeight(BSTNode node) {
+            if (node == null) return 0;
+            return node.height;
+        }
+
+        @Override
+        public String toString() {
+            return "Root: " + toString(1);
+        }
+
+        @Override
+        protected String toString(int depth) {
+            StringBuilder strData = new StringBuilder("[value: " + data + ", height: " + height + "]\n");
+            for (int j = 0; j < children.size(); j++) {
+                AbstractTreeNode<E> child = children.get(j);
+                if (child != null) {
+                    strData.append("\t".repeat(Math.max(0, depth)));
+                    strData.append("Child ").append(j).append(": ").append(child.toString(depth+1));
+                }
+            }
+            return strData.toString();
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Integer[] data = {10,9,8,7,6,5,4,3,2,1};
+
+        Comparator<Integer> comparator = (o1, o2) -> {
+            if (o1 < o2) {
+                return -1;
+            } else if (o1.equals(o2)) {
+                return 0;
+            } else {
+                return 1;
+            }
+        };
+
+        AVLTree<Integer> searchTree = new AVLTree<>(comparator);
+        searchTree.add(data);
+
+        System.out.println(searchTree);
+
+        System.out.println(searchTree.inOrderTraverse());
 
     }
 
