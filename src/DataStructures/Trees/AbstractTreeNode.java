@@ -77,7 +77,7 @@ public abstract class AbstractTreeNode<E> {
     }
 
     protected String toString(int depth) {
-        StringBuilder strData = new StringBuilder("" + data.toString() + "\n");
+        StringBuilder strData = new StringBuilder("[" + data.toString() + "]\n");
         for (int j = 0; j < children.size(); j++) {
             AbstractTreeNode<E> child = children.get(j);
             if (child != null) {

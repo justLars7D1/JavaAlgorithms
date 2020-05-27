@@ -105,7 +105,11 @@ public class BSTNode<E> extends AbstractTreeNode<E> {
 
     @Override
     protected int size() {
-        return super.size();
+        int numNull = 0;
+        for (AbstractTreeNode<E> child: children) {
+            if (child == null) numNull++;
+        }
+        return 2 - numNull;
     }
 
     @Override

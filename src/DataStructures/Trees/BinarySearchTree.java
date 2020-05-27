@@ -10,6 +10,7 @@ public class BinarySearchTree<E> {
     private final Comparator<E> comparator;
 
     public BinarySearchTree(Comparator<E> comparator) {
+        this.root = new BSTNode<E>(null, comparator);
         this.comparator = comparator;
     }
 
@@ -35,41 +36,60 @@ public class BinarySearchTree<E> {
 
     public void add(E data) {
         BSTNode<E> node = new BSTNode<>(data, comparator);
-        if (root == null) {
-            root = node;
+        if (root.isExternal()) {
+            node.setParent(root);
+            List<AbstractTreeNode<E>> nodes = new ArrayList<>();
+            nodes.add(node);
+            root.setChildren(nodes);
         } else {
-            root.addChild(node);
+            getRoot().addChild(node);
         }
     }
 
     public void delete(E value) {
-        BSTNode<E> valueNode = root.findNode(value);
-        // If no left child
-        if (!valueNode.hasLeftChild()) {
-            // We remove it from the tree, it's as simple as that
-            int index = valueNode.parent.children.indexOf(valueNode);
-            valueNode.parent.children.set(index, null);
-            valueNode.parent = null;
-        // Otherwise
-        } else {
-            // We find that node that would follow by using inorder traversal on the right sub tree of our value
-            if (valueNode.hasRightChild()) {
-                BSTNode<E> followerNode = valueNode.getRightChild().inOrderTraverse().get(0);
-                System.out.println(followerNode.getData());
-                valueNode.setData(followerNode.getData());
+        BSTNode<E> valueNode = getRoot().findNode(value);
+        // If no children
+        if (valueNode.isExternal() && valueNode != root) {
+            deleteNodeFromTree(valueNode);
+        // If only one child
+        } else if (valueNode.size() == 1) {
+            // Get the child, remove the connection with their parent
+            BSTNode<E> childNode = (valueNode.hasLeftChild()) ? valueNode.getLeftChild() : valueNode.getRightChild();
+            int index = valueNode.getChildren().indexOf(childNode);
 
-                //TODO: Fix logical error somewhere here
+            deleteNodeFromTree(childNode);
 
-                // Then, we update it in the tree structure
-                List<AbstractTreeNode<E>> parentChildren = followerNode.getParent().children;
-                int index = parentChildren.indexOf(followerNode);
-                parentChildren.set(index, null);
-            } else {
-                valueNode.setData(valueNode.getLeftChild().getData());
-                valueNode.children.get(0).parent = null;
-                valueNode.children.set(0, null);
-            }
+            // Delete the parent from the tree
+            BSTNode<E> parentNode = (BSTNode<E>) valueNode.getParent();
+            deleteNodeFromTree(valueNode);
+
+            // And add the child to it's parent
+            addNodeToTree(childNode, parentNode, index);
+        } else if (valueNode.size() == 2) {
+            // Copy the data (value and right child) from it's successor node which is found by inorder traversal of
+            // the right subtree to it and delete the successor node from the tree
+            BSTNode<E> successorNode = valueNode.getRightChild().inOrderTraverse().get(0);
+            AbstractTreeNode<E> rightChild = successorNode.getChildren().get(1);
+            valueNode.setData(successorNode.getData());
+            deleteNodeFromTree(successorNode);
+            valueNode.children.set(1, rightChild);
         }
+    }
+
+    private void addNodeToTree(BSTNode<E> node, BSTNode<E> parentNode, int index) {
+        if (parentNode == root) {
+            parentNode.getChildren().set(0, node);
+        } else {
+            parentNode.getChildren().set(index, node);
+        }
+        node.setParent(parentNode);
+    }
+
+    private void deleteNodeFromTree(BSTNode<E> node) {
+        BSTNode<E> parentNode = (BSTNode<E>) node.getParent();
+        int index = parentNode.getChildren().indexOf(node);
+        parentNode.children.set(index, null);
+        node.setParent(null);
     }
 
     @SafeVarargs
@@ -81,12 +101,20 @@ public class BinarySearchTree<E> {
 
     @Override
     public String toString() {
-        return root.toString();
+        if (getRoot() != null) {
+            return getRoot().toString();
+        } else {
+            return "[]";
+        }
+    }
+
+    private BSTNode<E> getRoot() {
+        return (BSTNode<E>) root.getChildren().get(0);
     }
 
     public static void main(String[] args) {
 
-        Integer[] data = {5, 2, 7, 1, 4, 6};
+        Integer[] data = {5, 2, 4, 6, 8, -1, 45};
 
         Comparator<Integer> comparator = (o1, o2) -> {
             if (o1 < o2) {
@@ -102,12 +130,6 @@ public class BinarySearchTree<E> {
         searchTree.add(data);
 
         System.out.println(searchTree);
-        for (Integer v: data) {
-            System.out.print(v + ": \n");
-            searchTree.delete(v);
-            searchTree.add(v);
-            System.out.println(searchTree);
-        }
 
     }
 
