@@ -647,7 +647,7 @@ public class AVLTree<E> {
          */
         @Override
         protected String toString(int depth) {
-            StringBuilder strData = new StringBuilder("[val: " + data + ", p: " + getParent().data + "]\n");
+            StringBuilder strData = new StringBuilder("[val: " + data + "\n");
             for (int j = 0; j < children.size(); j++) {
                 AbstractTreeNode<E> child = children.get(j);
                 if (child != null) {
