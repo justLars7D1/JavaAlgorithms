@@ -109,7 +109,10 @@ public class AVLTree<E> {
             valueNode.setData(successorNode.getData());
             deleteNodeFromTree(successorNode);
 
-            if (!valueNode.hasRightChild()) valueNode.children.set(1, rightChild);
+            if (!valueNode.hasRightChild()) {
+                valueNode.children.set(1, rightChild);
+                if (rightChild != null) rightChild.setParent(valueNode);
+            }
         }
 
         parentOfValueNode.rebalanceDeletion();
@@ -381,36 +384,28 @@ public class AVLTree<E> {
                 BSTNode leftNode = getLeftChild();
                 BSTNode rightNode = getRightChild();
 
-                System.out.println(this);
-                System.out.println(getParent().getChildren().get(0).getData());
-
                 // Left Left Case
                 if (balanceNumber > 1 && leftNode.calculateBalance() >= 0) {
-                    System.out.println("LL");
                     rightRotation(this);
                 }
 
                 // Left Right Case
                 if (balanceNumber > 1 && leftNode.calculateBalance() < 0) {
-                    System.out.println("LR");
                     leftRotation(leftNode);
                     rightRotation(this);
                 }
 
                 // Right Right Case
                 if (balanceNumber < -1 && rightNode.calculateBalance() < 0) {
-                    System.out.println("RR");
                     leftRotation(this);
                 }
 
                 // Right Left Case
                 if (balanceNumber < -1 && rightNode.calculateBalance() > 0) {
-                    System.out.println("RL");
                     rightRotation(rightNode);
                     leftRotation(this);
                 }
 
-                System.out.println(getParent().getChildren().get(0).getData());
                 if (getParent() != root) ((BSTNode) getParent()).rebalanceDeletion();
 
             }
@@ -647,7 +642,7 @@ public class AVLTree<E> {
          */
         @Override
         protected String toString(int depth) {
-            StringBuilder strData = new StringBuilder("[val: " + data + "\n");
+            StringBuilder strData = new StringBuilder("[val: " + data + "]\n");
             for (int j = 0; j < children.size(); j++) {
                 AbstractTreeNode<E> child = children.get(j);
                 if (child != null) {

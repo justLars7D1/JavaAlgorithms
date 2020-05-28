@@ -6,7 +6,7 @@ public class AVLTest {
 
     public static void main(String[] args) {
 
-        Integer[] data = {7, 6, 8, 10, 5, 9, 4};
+        Integer[] data = {237457, -2348, 743, 34823, 237, 234-12, 0};
 
         Comparator<Integer> comparator = (o1, o2) -> {
             if (o1 < o2) {
