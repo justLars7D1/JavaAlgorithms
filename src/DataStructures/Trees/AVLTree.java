@@ -26,33 +26,6 @@ public class AVLTree<E> {
         this.comparator = comparator;
     }
 
-    public static void main(String[] args) {
-
-        Integer[] data = {1,1,2,3,4,5,6,7,8,9,10};
-
-        Comparator<Integer> comparator = (o1, o2) -> {
-            if (o1 < o2) {
-                return -1;
-            } else if (o1.equals(o2)) {
-                return 0;
-            } else {
-                return 1;
-            }
-        };
-
-        AVLTree<Integer> searchTree = new AVLTree<>(comparator);
-        searchTree.add(data);
-
-        System.out.println(searchTree);
-
-        for (int i = 10; i > 0; i--) {
-            System.out.println("Deleting " + i + ":");
-            searchTree.delete(i);
-            System.out.println(searchTree);
-        }
-
-    }
-
     /**
      * Traverses the tree in a pre-order way
      *
@@ -132,9 +105,11 @@ public class AVLTree<E> {
             // the right subtree to it and delete the successor node from the tree
             BSTNode successorNode = valueNode.getRightChild().inOrderTraverse().get(0);
             AbstractTreeNode<E> rightChild = successorNode.getChildren().get(1);
+
             valueNode.setData(successorNode.getData());
             deleteNodeFromTree(successorNode);
-            valueNode.children.set(1, rightChild);
+
+            if (!valueNode.hasRightChild()) valueNode.children.set(1, rightChild);
         }
 
         parentOfValueNode.rebalanceDeletion();
@@ -406,28 +381,36 @@ public class AVLTree<E> {
                 BSTNode leftNode = getLeftChild();
                 BSTNode rightNode = getRightChild();
 
+                System.out.println(this);
+                System.out.println(getParent().getChildren().get(0).getData());
+
                 // Left Left Case
                 if (balanceNumber > 1 && leftNode.calculateBalance() >= 0) {
+                    System.out.println("LL");
                     rightRotation(this);
                 }
 
                 // Left Right Case
                 if (balanceNumber > 1 && leftNode.calculateBalance() < 0) {
+                    System.out.println("LR");
                     leftRotation(leftNode);
                     rightRotation(this);
                 }
 
                 // Right Right Case
                 if (balanceNumber < -1 && rightNode.calculateBalance() < 0) {
+                    System.out.println("RR");
                     leftRotation(this);
                 }
 
                 // Right Left Case
                 if (balanceNumber < -1 && rightNode.calculateBalance() > 0) {
+                    System.out.println("RL");
                     rightRotation(rightNode);
                     leftRotation(this);
                 }
 
+                System.out.println(getParent().getChildren().get(0).getData());
                 if (getParent() != root) ((BSTNode) getParent()).rebalanceDeletion();
 
             }
