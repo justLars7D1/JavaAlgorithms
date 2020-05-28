@@ -104,15 +104,16 @@ public class AVLTree<E> {
             // Copy the data (value and right child) from it's successor node which is found by inorder traversal of
             // the right subtree to it and delete the successor node from the tree
             BSTNode successorNode = valueNode.getRightChild().inOrderTraverse().get(0);
+            BSTNode successorParent = (BSTNode) successorNode.getParent();
             AbstractTreeNode<E> rightChild = successorNode.getChildren().get(1);
+            int successorIndex = successorNode.getParent().children.indexOf(successorNode);
 
             valueNode.setData(successorNode.getData());
             deleteNodeFromTree(successorNode);
 
-            if (!valueNode.hasRightChild()) {
-                valueNode.children.set(1, rightChild);
-                if (rightChild != null) rightChild.setParent(valueNode);
-            }
+            successorParent.children.set(successorIndex, rightChild);
+            if (rightChild != null) rightChild.setParent(successorParent);
+
         }
 
         parentOfValueNode.rebalanceDeletion();
@@ -642,7 +643,7 @@ public class AVLTree<E> {
          */
         @Override
         protected String toString(int depth) {
-            StringBuilder strData = new StringBuilder("[val: " + data + "]\n");
+            StringBuilder strData = new StringBuilder(data + "\n");
             for (int j = 0; j < children.size(); j++) {
                 AbstractTreeNode<E> child = children.get(j);
                 if (child != null) {

@@ -6,24 +6,25 @@ public class AVLTest {
 
     public static void main(String[] args) {
 
-        Integer[] data = {237457, -2348, 743, 34823, 237, 234-12, 0};
+        // There is still a bug when doing an in-order pass to swap elements when removing one from the tree
+        String[] data = {"Lars", "ThanksJo!", "Testing", "BST", "AVL", "Tree", "Bla", "WowNiceTree"};
 
-        Comparator<Integer> comparator = (o1, o2) -> {
-            if (o1 < o2) {
+        Comparator<String> comparator = (o1, o2) -> {
+            if (o1.compareTo(o2) < 0) {
                 return -1;
-            } else if (o1.equals(o2)) {
+            } else if (o1.compareTo(o2) == 0) {
                 return 0;
             } else {
                 return 1;
             }
         };
 
-        AVLTree<Integer> searchTree = new AVLTree<>(comparator);
+        AVLTree<String> searchTree = new AVLTree<>(comparator);
         searchTree.add(data);
 
         System.out.println(searchTree);
 
-        for (int d: data) {
+        for (String d: data) {
             System.out.println("Deleting " + d + ":");
             searchTree.delete(d);
             System.out.println(searchTree);
