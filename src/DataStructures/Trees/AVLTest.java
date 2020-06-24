@@ -7,7 +7,7 @@ public class AVLTest {
     public static void main(String[] args) {
 
         // There is still a bug when doing an in-order pass to swap elements when removing one from the tree
-        Integer[] data = {456, -123, 138, Integer.MAX_VALUE, Integer.MIN_VALUE, -12, 0, 13, 48942};
+        Integer[] data = {1,2,3,4,5,6,7,6,5,4,3,2,1};
 
         Comparator<Integer> comparator = (o1, o2) -> {
             if (o1.compareTo(o2) < 0) {

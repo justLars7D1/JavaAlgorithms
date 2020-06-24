@@ -17,6 +17,10 @@ public class Vector implements Cloneable {
         return coordinates[i];
     }
 
+    public void set(int i, double v) {
+        coordinates[i] = v;
+    }
+
     public int getDimensions() {
         return coordinates.length;
     }
@@ -68,6 +72,12 @@ public class Vector implements Cloneable {
         }
     }
 
+    public void exponentScale(double exp) {
+        int dimensions = getDimensions();
+        for (int i = 0; i < dimensions; i++) {
+            coordinates[i] = Math.pow(exp, coordinates[i]);
+        }
+    }
 
     public Vector getAdded(Vector otherVector) {
         Vector copyOfCurrentVector = (Vector) clone();
@@ -96,6 +106,12 @@ public class Vector implements Cloneable {
     public Vector getScaled(final double scaleFactor) {
         Vector copy = (Vector) clone();
         copy.scale(scaleFactor);
+        return copy;
+    }
+
+    public Vector getExponentScaled(final double exp) {
+        Vector copy = (Vector) clone();
+        copy.exponentScale(exp);
         return copy;
     }
 
