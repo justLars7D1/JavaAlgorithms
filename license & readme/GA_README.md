@@ -19,7 +19,7 @@ Everything is commented with javadoc, so we'll only give a brief description of 
 This class represents a single agent within a certain environment.
 It contains an id, weights and a score.
 
-### GeneticAlgorithm.java
+### Algorithms.GeneticAlgorithm.java
 This class represents the genetic algorithm strategy. It takes a pool of agents and with a score function it can create better generations.
 
 _We recommend creating a new file for scoring the agent's performance and updating it within that file_
