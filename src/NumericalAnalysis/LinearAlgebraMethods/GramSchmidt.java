@@ -1,7 +1,7 @@
 package NumericalAnalysis.LinearAlgebraMethods;
 
-import LinearAlgebra.Matrix;
-import LinearAlgebra.Vector;
+import Mathematics.LinearAlgebra.Matrix;
+import Mathematics.LinearAlgebra.Vector;
 
 public class GramSchmidt {
 

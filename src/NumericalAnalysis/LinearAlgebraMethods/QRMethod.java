@@ -1,6 +1,6 @@
 package NumericalAnalysis.LinearAlgebraMethods;
 
-import LinearAlgebra.Matrix;
+import Mathematics.LinearAlgebra.Matrix;
 
 public class QRMethod {
 

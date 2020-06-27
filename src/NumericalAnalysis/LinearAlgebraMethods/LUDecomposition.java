@@ -1,10 +1,8 @@
 package NumericalAnalysis.LinearAlgebraMethods;
 
-import LinearAlgebra.GaussianElimination;
-import LinearAlgebra.Matrix;
-import LinearAlgebra.Vector;
-
-import java.util.Arrays;
+import Mathematics.LinearAlgebra.GaussianElimination;
+import Mathematics.LinearAlgebra.Matrix;
+import Mathematics.LinearAlgebra.Vector;
 
 public class LUDecomposition {
 

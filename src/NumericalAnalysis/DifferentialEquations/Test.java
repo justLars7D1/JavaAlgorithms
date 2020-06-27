@@ -1,18 +1,16 @@
 package NumericalAnalysis.DifferentialEquations;
 
-import LinearAlgebra.Vector;
+import Mathematics.Functions.ODEFunction;
+import Mathematics.LinearAlgebra.Vector;
 
 public class Test {
 
     public static void main(String[] args) {
 
-        ODEFunction ex = new ODEFunction() {
-            @Override
-            public Vector evaluate(double t, Vector y) {
-                Vector v = new Vector(1);
-                v.set(0, Math.exp(t));
-                return v;
-            }
+        ODEFunction ex = (t, y) -> {
+            Vector v = new Vector(1);
+            v.set(0, Math.exp(t));
+            return v;
         };
 
         Vector oneD = new Vector(1);

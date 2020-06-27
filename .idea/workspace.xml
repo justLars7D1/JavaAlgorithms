@@ -2,17 +2,77 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Mathematics/Functions/ODEFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/ClassicalRK4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/ClassicalRK4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/ODESolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/ODESolver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/Test$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/Test$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DifferentialEquations/ClassicalRK4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DifferentialEquations/ClassicalRK4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DifferentialEquations/ODESolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DifferentialEquations/ODESolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DifferentialEquations/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DifferentialEquations/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/GramSchmidt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/GramSchmidt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/LUDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/LUDecomposition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/QRMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/QRMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/ColumnNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/DLAlgorithmX.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/PentominoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/PentominoDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/UI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/pentomino.csv.README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DancingLinks/pentominos.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/ClassicalRK4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/Euler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/ODEFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/ODESolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/Test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/DifferentialEquations/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/GeneticAlgorithm/Agent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/GeneticAlgorithm/GeneticAlgorithm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/GaussianElimination.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/GramSchmidt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/LUDecomposition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/LinearAlgebra.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/QREval.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/QRMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/LinearAlgebra/Vector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/ActivationFunctions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/ArcTan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/BinaryStep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/ELu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/Gaussian.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/ISRLU.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/ISRU.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/Identity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/LeakyReLu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/PReLu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/ReLu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/Sigmoid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/Sin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/Sinc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/SoftClipping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/SoftPlus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/SoftSign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Activations/TanH.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Layers/Layer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Losses/Losses.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/NeuralNetwork/Neurons/Neuron.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/PathFinding/Grid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/PathFinding/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/PathFinding/PathFinding.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/PathFinding/Settings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeastSquares/Basis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeastSquares/Basis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeastSquares/LeastSquares.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeastSquares/LeastSquares.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeastSquares/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeastSquares/TestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeastSquares/function/Function.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeastSquares/function/LinearEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/Functions/LinearEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/GaussianElimination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/GaussianElimination.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/LinearAlgebra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/LinearAlgebra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/QREval.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/QREval.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinearAlgebra/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/ClassicalRK4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/ClassicalRK4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/Euler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/Euler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/ODEFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/ODESolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/ODESolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/DifferentialEquations/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/GramSchmidt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/GramSchmidt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/LUDecomposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/LUDecomposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/QRMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NumericalAnalysis/LinearAlgebraMethods/QRMethod.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +85,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -67,7 +127,7 @@
       <recent name="D:\Projects\JavaAlgorithms\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.TestData">
     <configuration name="AVLTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DataStructures.Trees.AVLTest" />
       <module name="JavaAlgorithms" />
@@ -94,12 +154,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QRMethod" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="NumericalAnalysis.LinearAlgebraMethods.QRMethod" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.PathFinding.Main" />
       <module name="JavaAlgorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="NumericalAnalysis.LinearAlgebraMethods.*" />
+          <option name="PATTERN" value="Algorithms.PathFinding.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,7 +172,20 @@
       <module name="JavaAlgorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="NumericalAnalysis.DifferentialEquations.*" />
+          <option name="PATTERN" value="Mathematics.Functions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="NumericalAnalysis.LeastSquares.TestData" />
+      <module name="JavaAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Mathematics.Functions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,15 +196,17 @@
     <list>
       <item itemvalue="Application.AVLTest" />
       <item itemvalue="Application.GramSchmidt" />
-      <item itemvalue="Application.QRMethod" />
       <item itemvalue="Application.Test" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.TestData" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestData" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.AVLTest" />
         <item itemvalue="Application.GramSchmidt" />
-        <item itemvalue="Application.QRMethod" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +254,8 @@
       <workItem from="1591526825522" duration="8000" />
       <workItem from="1593008580531" duration="3180000" />
       <workItem from="1593081604519" duration="529000" />
-      <workItem from="1593200871895" duration="2902000" />
+      <workItem from="1593200871895" duration="3843000" />
+      <workItem from="1593254869506" duration="1220000" />
     </task>
     <servers />
   </component>
@@ -199,34 +275,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589634932640" />
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1593201762241">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1593255653461">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593201762241" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593255653461" />
     <state x="566" y="297" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593203770245">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="566" y="297" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1593203770245" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593255188566">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1593255188566" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1593082130340">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593082130340" />
-    <state width="1493" height="505" key="GridCell.Tab.0.bottom" timestamp="1593203029813">
+    <state width="1493" height="241" key="GridCell.Tab.0.bottom" timestamp="1593256096618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="505" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593203029813" />
-    <state width="1493" height="505" key="GridCell.Tab.0.center" timestamp="1593203029813">
+    <state width="1493" height="241" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593256096618" />
+    <state width="1493" height="241" key="GridCell.Tab.0.center" timestamp="1593256096618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="505" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593203029813" />
-    <state width="1493" height="505" key="GridCell.Tab.0.left" timestamp="1593203029813">
+    <state width="1493" height="241" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593256096618" />
+    <state width="1493" height="241" key="GridCell.Tab.0.left" timestamp="1593256096618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="505" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593203029813" />
-    <state width="1493" height="505" key="GridCell.Tab.0.right" timestamp="1593203029813">
+    <state width="1493" height="241" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593256096618" />
+    <state width="1493" height="241" key="GridCell.Tab.0.right" timestamp="1593256096618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="505" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593203029813" />
+    <state width="1493" height="241" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593256096618" />
     <state width="1493" height="269" key="GridCell.Tab.1.bottom" timestamp="1593202643715">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -243,10 +323,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="269" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593202643714" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593200874211">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1593204384156">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593200874211" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1593204384156" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593254872989">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593254872989" />
     <state x="498" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1590569654936">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -255,10 +339,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1590606246641" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593010760493">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593256174244">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593010760493" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593256174244" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/JavaAlgorithms$Test.ic" NAME="Test Coverage Results" MODIFIED="1593202384244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

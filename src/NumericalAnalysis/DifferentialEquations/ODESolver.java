@@ -1,6 +1,7 @@
 package NumericalAnalysis.DifferentialEquations;
 
-import LinearAlgebra.Vector;
+import Mathematics.Functions.ODEFunction;
+import Mathematics.LinearAlgebra.Vector;
 
 public abstract class ODESolver {
 
