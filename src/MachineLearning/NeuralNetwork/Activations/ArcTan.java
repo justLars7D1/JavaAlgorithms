@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class ArcTan implements ActivationFunctions{
+import Mathematics.Functions.ScalarFunction;
+
+public class ArcTan implements ScalarFunction {
     public double evaluate(double x) {
         return Math.atan(x);
     }

@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class Identity implements ActivationFunctions {
+import Mathematics.Functions.ScalarFunction;
+
+public class Identity implements ScalarFunction {
     public double evaluate(double x) {
         return x;
     }

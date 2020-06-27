@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class SoftClipping implements ActivationFunctions {
+import Mathematics.Functions.ScalarFunction;
+
+public class SoftClipping implements ScalarFunction {
 
     private double alpha;
 

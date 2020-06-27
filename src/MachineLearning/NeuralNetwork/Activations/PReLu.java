@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class PReLu implements ActivationFunctions {
+import Mathematics.Functions.ScalarFunction;
+
+public class PReLu implements ScalarFunction {
 
     protected double alpha;
 

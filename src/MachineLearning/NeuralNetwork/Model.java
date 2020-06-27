@@ -1,38 +1,35 @@
 package MachineLearning.NeuralNetwork;
 
-import MachineLearning.NeuralNetwork.Activations.ActivationFunctions;
 import MachineLearning.NeuralNetwork.Layers.Layer;
+import Mathematics.Functions.ScalarFunction;
+import Mathematics.LinearAlgebra.Vector;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Model {
 
-    private ArrayList<Layer> layers;
-    private ArrayList<double[][]> weights;
+    private final int inputSize;
+    private List<Layer> layers;
 
-    //private Optimizer optimizer;
-    //private Loss loss;
+    public Model(int inputSize) {
+        assert inputSize > 0;
+        this.inputSize = inputSize;
+        this.layers = new ArrayList<>();
+    }
 
-    public void add(int num_neurons, ActivationFunctions activation, String type) {
-        layers.add(new Layer(num_neurons, activation, type));
-
-        if(layers.size() > 1) {
-            if(type == "output") {
-                double[][] tmp_weights = new double[num_neurons][layers.get(layers.size()-2).getNeurons().length];
-                for(int i = 0; i < tmp_weights[0].length; i++) {
-                    for(int j = 0; j < tmp_weights.length; j++) {
-                        tmp_weights[i][j] = Math.random();
-                    }
-                }
-            } else {
-                double[][] tmp_weights = new double[num_neurons][layers.get(layers.size()-2).getNeurons().length];
-                for(int i = 0; i < tmp_weights[0].length; i++) {
-                    for(int j = 0; j < tmp_weights.length; j++) {
-                        tmp_weights[i][j] = Math.random();
-                    }
-                }
-            }
+    public Vector evaluate(Vector input) {
+        assert input.getDimensions() == inputSize;
+        Vector currentOutput = (Vector) input.clone();
+        for (Layer l: layers) {
+            currentOutput = l.evaluate(currentOutput);
         }
+        return currentOutput;
+    }
+
+    public void addLayer(int numNeurons, ScalarFunction activation) {
+        int lastOutputSize = (layers.size() > 0) ? layers.get(layers.size()-1).getOutputSize() : inputSize;
+        layers.add(new Layer(lastOutputSize, numNeurons, activation));
     }
 
 }

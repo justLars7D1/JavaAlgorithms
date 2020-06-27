@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class ELu implements ActivationFunctions {
+import Mathematics.Functions.ScalarFunction;
+
+public class ELu implements ScalarFunction {
 
     private double alpha;
 

@@ -1,34 +1,45 @@
 package MachineLearning.NeuralNetwork.Layers;
 
-import MachineLearning.NeuralNetwork.Activations.ActivationFunctions;
-import MachineLearning.NeuralNetwork.Neurons.Neuron;
+import Mathematics.Functions.ScalarFunction;
+import Mathematics.LinearAlgebra.Matrix;
+import Mathematics.LinearAlgebra.Vector;
 
 public class Layer {
 
-    protected Neuron[] neurons;
+    private ScalarFunction activation;
+    private Matrix representation;
 
-    public Layer(int num_neurons, ActivationFunctions activation_function, String type) {
-        if (type.toLowerCase().equals("input")) {
-            neurons = new Neuron[num_neurons+1];
-            for(int i = 0; i < num_neurons+1; i++) neurons[i] = new Neuron();
-            neurons[neurons.length-1].value = 1;
-        } else if (type.toLowerCase().equals("hidden")) {
-            neurons = new Neuron[num_neurons+1];
-            for(int i = 0; i < num_neurons; i++) neurons[i] = new Neuron(activation_function);
-            neurons[neurons.length-1] = new Neuron();
-            neurons[neurons.length-1].value = 1;
-        } else if (type.toLowerCase().equals("output")) {
-            neurons = new Neuron[num_neurons];
-            for(int i = 0; i < num_neurons; i++) neurons[i] = new Neuron(activation_function);
+    private double bias;
+
+    public Layer(int numInputNeurons, int numOutputNeurons, ScalarFunction activation) {
+        this.activation = activation;
+        representation = new Matrix(numOutputNeurons, numInputNeurons);
+        setRandomWeights();
+        System.out.println(representation);
+    }
+
+    public Vector evaluate(Vector input) {
+        Vector result = representation.multiply(input);
+        //TODO: Improve by changing activation function to vector-valued functions
+        for (int i = 0; i < result.getDimensions(); i++) {
+            double afterActivation = activation.evaluate(result.get(i) + bias);
+            result.set(i, afterActivation);
         }
+        return result;
     }
 
-    public Neuron[] getNeurons() {
-        return neurons;
+    public int getOutputSize() {
+        return representation.getSize()[0];
     }
 
-    public void setNeurons(Neuron[] neurons) {
-        this.neurons = neurons;
+    private void setRandomWeights() {
+        int[] size = representation.getSize();
+        for (int i = 0; i < size[0]; i++) {
+            for (int j = 0; j < size[1]; j++) {
+                representation.set(i, j, -1 + 2*Math.random());
+            }
+        }
+        bias = -1 + 2*Math.random();
     }
 
 }

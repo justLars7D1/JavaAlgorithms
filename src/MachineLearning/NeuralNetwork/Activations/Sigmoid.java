@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class Sigmoid implements ActivationFunctions{
+import Mathematics.Functions.ScalarFunction;
+
+public class Sigmoid implements ScalarFunction {
     public double evaluate(double x) {
         return 1/(1+Math.exp(-x));
     }

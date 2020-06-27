@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class ISRLU extends ISRU implements ActivationFunctions {
+import Mathematics.Functions.ScalarFunction;
+
+public class ISRLU extends ISRU implements ScalarFunction {
     @Override
     public double evaluate(double x) {
         if (x <= 0) return x/(Math.sqrt(1+(alpha*x*x)));

@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class ISRU implements ActivationFunctions{
+import Mathematics.Functions.ScalarFunction;
+
+public class ISRU implements ScalarFunction {
 
     protected double alpha;
 

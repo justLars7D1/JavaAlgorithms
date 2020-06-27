@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class ReLu implements ActivationFunctions{
+import Mathematics.Functions.ScalarFunction;
+
+public class ReLu implements ScalarFunction {
     public double evaluate(double x) {
         if (x <= 0) return 0;
         else return x;

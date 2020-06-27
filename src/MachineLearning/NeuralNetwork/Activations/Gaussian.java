@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class Gaussian implements ActivationFunctions {
+import Mathematics.Functions.ScalarFunction;
+
+public class Gaussian implements ScalarFunction {
     public double evaluate(double x) {
         return Math.exp(-1*x*x);
     }

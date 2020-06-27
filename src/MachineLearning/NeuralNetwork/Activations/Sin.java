@@ -1,6 +1,8 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-public class Sin implements ActivationFunctions {
+import Mathematics.Functions.ScalarFunction;
+
+public class Sin implements ScalarFunction {
     public double evaluate(double x) {
         return Math.sin(x);
     }
