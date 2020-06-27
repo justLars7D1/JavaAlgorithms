@@ -28,9 +28,10 @@ public class Model {
         assert xs.size() == ys.size();
         for (int i = 0; i < numIterations; i++) {
             for (int j = 0; j < xs.size(); j++) {
-                Vector yPredicted = evaluate(xs.get(j));
-                Vector loss = lossFunction.evaluate(yPredicted, ys.get(j));
-
+                List<Vector[]> resultingData = evaluateForTraining(xs.get(j));
+                Vector evaluatedOutput = resultingData.get(resultingData.size()-1)[1]; // This contains the last vector in the network, which is the result
+                Vector loss = lossFunction.evaluate(ys.get(j), evaluatedOutput);
+                backPropagate(resultingData, loss);
             }
         }
     }
@@ -55,6 +56,24 @@ public class Model {
     public void addLayer(int numNeurons, ScalarFunction activation) {
         int lastOutputSize = (layers.size() > 0) ? layers.get(layers.size()-1).getOutputSize() : inputSize;
         layers.add(new Layer(lastOutputSize, numNeurons, activation));
+    }
+
+    private void backPropagate(List<Vector[]> intermediateData, Vector loss) {
+
+    }
+
+    private List<Vector[]> evaluateForTraining(Vector input) {
+        assert input.getDimensions() == inputSize;
+        List<Vector[]> currentOutput = new ArrayList<>();
+        Vector currentInput = (Vector) input.clone();
+
+        for (Layer l: layers) {
+            Vector[] layerData = l.evaluateTraining(currentInput);
+            currentOutput.add(layerData);
+            currentInput = (Vector) layerData[1].clone();
+        }
+
+        return currentOutput;
     }
 
 }

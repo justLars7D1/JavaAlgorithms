@@ -45,6 +45,13 @@ public class Vector implements Cloneable {
         }
     }
 
+    public void add(final double value) {
+        int dimensions = getDimensions();
+        for (int i = 0; i < dimensions; i++) {
+            coordinates[i] += value;
+        }
+    }
+
     public void multiply(final Vector otherVector) {
         int dimensions = getDimensions();
         assert dimensions == otherVector.getDimensions();
@@ -82,6 +89,12 @@ public class Vector implements Cloneable {
     public Vector getAdded(Vector otherVector) {
         Vector copyOfCurrentVector = (Vector) clone();
         copyOfCurrentVector.add(otherVector);
+        return copyOfCurrentVector;
+    }
+
+    public Vector getAdded(double value) {
+        Vector copyOfCurrentVector = (Vector) clone();
+        copyOfCurrentVector.add(value);
         return copyOfCurrentVector;
     }
 

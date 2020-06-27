@@ -5,6 +5,11 @@ import Mathematics.LinearAlgebra.Vector;
 public class MSE implements Loss {
     @Override
     public Vector evaluate(Vector yActual, Vector yPred) {
-        return yActual.getSubtracted(yPred).getExponentScaled(2);
+        return yPred.getSubtracted(yActual).getExponentScaled(2);
+    }
+
+    @Override
+    public Vector evalDerivative(Vector yPred, Vector yActual) {
+        return yPred.getSubtracted(yActual).getScaled(2);
     }
 }
