@@ -1,13 +1,23 @@
 package MachineLearning.NeuralNetwork.Activations;
 
+import Mathematics.LinearAlgebra.Vector;
+
 public class Sigmoid implements Activation {
-    public double evaluate(double x) {
-        return 1/(1+Math.exp(-x));
+    public Vector evaluate(Vector x) {
+        Vector result = new Vector(x.getDimensions());
+        for (int i = 0; i < x.getDimensions(); i++) {
+            result.set(i, 1/(1+Math.exp(-x.get(i))));
+        }
+        return result;
     }
 
     @Override
-    public double evalDerivative(double x) {
-        double eval = evaluate(x);
-        return eval*(1 - eval);
+    public Vector evalDerivative(Vector x) {
+        Vector eval = evaluate(x);
+        for (int i = 0; i < eval.getDimensions(); i++) {
+            double value = eval.get(i);
+            eval.set(i, value*(1-value));
+        }
+        return eval;
     }
 }

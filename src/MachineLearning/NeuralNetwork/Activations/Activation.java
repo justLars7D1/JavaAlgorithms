@@ -1,9 +1,10 @@
 package MachineLearning.NeuralNetwork.Activations;
 
-import Mathematics.Functions.ScalarFunction;
+import Mathematics.LinearAlgebra.Vector;
 
-public interface Activation extends ScalarFunction {
+public interface Activation {
 
-    double evalDerivative(double x);
+    Vector evaluate(Vector x);
+    Vector evalDerivative(Vector x);
 
 }

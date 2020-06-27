@@ -1,14 +1,25 @@
 package MachineLearning.NeuralNetwork.Activations;
 
+import Mathematics.LinearAlgebra.Vector;
+
 public class ReLu implements Activation {
-    public double evaluate(double x) {
-        if (x <= 0) return 0;
-        else return x;
+
+    public Vector evaluate(Vector x) {
+        Vector result = new Vector(x.getDimensions());
+        for (int i = 0; i < x.getDimensions(); i++) {
+            if (x.get(i) <= 0) result.set(i, 0);
+            else result.set(i, x.get(i));
+        }
+        return result;
     }
 
     @Override
-    public double evalDerivative(double x) {
-        if (x <= 0) return 0;
-        else return 1;
+    public Vector evalDerivative(Vector x) {
+        Vector result = new Vector(x.getDimensions());
+        for (int i = 0; i < x.getDimensions(); i++) {
+            if (x.get(i) <= 0) result.set(i, 0);
+            else result.set(i, 1);
+        }
+        return result;
     }
 }

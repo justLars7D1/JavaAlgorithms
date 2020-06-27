@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Activations/Activation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Activations/Activation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Activations/ReLu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Activations/ReLu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Activations/Sigmoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Activations/Sigmoid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Layers/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/Loss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/Loss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/MSE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/MSE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mathematics/LinearAlgebra/Matrix.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +118,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Test" />
+      <module name="JavaAlgorithms" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MachineLearning.NeuralNetwork.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="NumericalAnalysis.LeastSquares.TestData" />
       <module name="JavaAlgorithms" />
@@ -152,10 +168,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.TestData" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.AVLTest" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +221,7 @@
       <workItem from="1593081604519" duration="529000" />
       <workItem from="1593200871895" duration="3843000" />
       <workItem from="1593254869506" duration="7645000" />
-      <workItem from="1593270432608" duration="4177000" />
+      <workItem from="1593270432608" duration="12886000" />
     </task>
     <servers />
   </component>
@@ -217,18 +233,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1590519849785" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593259192028">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593284695170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1593259192028" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1593284695170" />
     <state x="549" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589634932640">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589634932640" />
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1593272808034">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1593285768278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593272808034" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593285768278" />
     <state x="566" y="297" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593203770245">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -241,38 +257,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593082130340" />
-    <state width="1493" height="269" key="GridCell.Tab.0.bottom" timestamp="1593263618610">
+    <state width="1493" height="419" key="GridCell.Tab.0.bottom" timestamp="1593287033258">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
-    <state width="1493" height="269" key="GridCell.Tab.0.center" timestamp="1593263618610">
+    <state width="1493" height="419" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593287033258" />
+    <state width="1493" height="419" key="GridCell.Tab.0.center" timestamp="1593287033258">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
-    <state width="1493" height="269" key="GridCell.Tab.0.left" timestamp="1593263618610">
+    <state width="1493" height="419" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593287033258" />
+    <state width="1493" height="419" key="GridCell.Tab.0.left" timestamp="1593287033258">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
-    <state width="1493" height="269" key="GridCell.Tab.0.right" timestamp="1593263618610">
+    <state width="1493" height="419" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593287033258" />
+    <state width="1493" height="419" key="GridCell.Tab.0.right" timestamp="1593287033258">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
-    <state width="1493" height="269" key="GridCell.Tab.1.bottom" timestamp="1593263618610">
+    <state width="1493" height="419" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593287033258" />
+    <state width="1493" height="269" key="GridCell.Tab.1.bottom" timestamp="1593286920785">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
-    <state width="1493" height="269" key="GridCell.Tab.1.center" timestamp="1593263618610">
+    <state width="1493" height="269" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593286920785" />
+    <state width="1493" height="269" key="GridCell.Tab.1.center" timestamp="1593286920785">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
-    <state width="1493" height="269" key="GridCell.Tab.1.left" timestamp="1593263618610">
+    <state width="1493" height="269" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593286920785" />
+    <state width="1493" height="269" key="GridCell.Tab.1.left" timestamp="1593286920785">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
-    <state width="1493" height="269" key="GridCell.Tab.1.right" timestamp="1593263618610">
+    <state width="1493" height="269" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593286920785" />
+    <state width="1493" height="269" key="GridCell.Tab.1.right" timestamp="1593286920785">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593263618610" />
+    <state width="1493" height="269" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593286920785" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1593204384156">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -285,14 +301,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="306" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1590569654936" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1590606246641">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1593282937526">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1590606246641" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593274137182">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1593282937526" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593286302423">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593274137182" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593286302423" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/JavaAlgorithms$Test.ic" NAME="Test Coverage Results" MODIFIED="1593202384244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

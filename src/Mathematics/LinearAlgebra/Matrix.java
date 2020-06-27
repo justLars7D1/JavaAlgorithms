@@ -59,6 +59,14 @@ public class Matrix {
         return matrixToVector(result);
     }
 
+    public Matrix getTransposed() {
+        double[][] newGrid = new double[grid[0].length][grid.length];
+        for (int i = 0; i < grid.length; i++)
+            for (int j = 0; j < grid[0].length; j++)
+                newGrid[j][i] = grid[i][j];
+        return new Matrix(newGrid);
+    }
+
     private static Vector matrixToVector(Matrix matrix) {
         int[] size = matrix.getSize();
         assert size[1] == 1;
