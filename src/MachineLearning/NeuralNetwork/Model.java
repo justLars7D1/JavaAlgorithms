@@ -26,16 +26,23 @@ public class Model {
     }
 
     //TODO: Add batch size later for better tuning
-    public void train(Vector[] xs, Vector[] ys, int numIterations) {
+    public TrainingData train(Vector[] xs, Vector[] ys, int numIterations) {
+        TrainingData result = new TrainingData();
         assert xs.length == ys.length;
-//        System.out.println(this + "\n");
         for (int i = 0; i < numIterations; i++) {
+            double loss = 0;
             for (int j = 0; j < xs.length; j++) {
                 List<Vector[]> resultingData = evaluateForTraining(xs[j]);
                 backPropagate(resultingData, ys[j], xs[j]);
+
+                Vector lossVector = lossFunction.evaluate(evaluate(xs[j]), ys[j]);
+                for (int k = 0; k < lossVector.getDimensions(); k++) {
+                    loss += lossVector.get(k) / lossVector.getDimensions();
+                }
             }
-//            System.out.println(this + "\n");
+            result.addError(loss / xs.length);
         }
+        return result;
     }
 
     public List<Vector> evaluate(List<Vector> input) {
@@ -65,14 +72,8 @@ public class Model {
         Vector[] lastData = intermediateData.get(layers.size()-1);
 
         // The error gradient for the last layer. We use this to update the weights
-        //Vector error = lossFunction.evalDerivative(lastData[1], yActual);
-        Vector error = lastData[1].getSubtracted(yActual);
-        error.scale(2);//this is hard code => change it
+        Vector error = lossFunction.evalDerivative(lastData[1], yActual);
         error.multiply(lastLayer.getActivation().evalDerivative(lastData[0]));
-//        System.out.println("Output:" + lastData[1]);
-//        System.out.println("Actual: " + yActual);
-//        System.out.println(lastData[0]);
-//        System.out.println(lastData[1]);
 
         //TODO: Fix black box bug (error lots of 0)
 

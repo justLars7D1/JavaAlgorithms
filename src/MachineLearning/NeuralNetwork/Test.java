@@ -1,6 +1,5 @@
 package MachineLearning.NeuralNetwork;
 
-import MachineLearning.NeuralNetwork.Activations.ReLu;
 import MachineLearning.NeuralNetwork.Activations.Sigmoid;
 import MachineLearning.NeuralNetwork.Losses.MSE;
 import Mathematics.LinearAlgebra.Vector;
@@ -11,7 +10,7 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        Model m = new Model(2, 1, new MSE());
+        Model m = new Model(2, 5, new MSE());
         m.addLayer(2, new Sigmoid());
         m.addLayer(1, new Sigmoid());
 
@@ -39,10 +38,17 @@ public class Test {
         output.add(o2);
         output.add(o3);
         output.add(o4);
-        System.out.println("before :"+m.evaluate(input));
-        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 1000);
 
-        System.out.println("answer :"+m.evaluate(input));
+        TrainingData data = m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 100);
+
+        System.out.println(m.evaluate(input));
+
+        System.out.println(data);
+
+//        int c = 0;
+//        for (double error : data.getErrors()) {
+//            System.out.println("Iteration " + c++ + ": " + error);
+//        }
 
     }
 

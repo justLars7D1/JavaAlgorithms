@@ -82,7 +82,7 @@ public class Vector implements Cloneable {
     public void exponentScale(double exp) {
         int dimensions = getDimensions();
         for (int i = 0; i < dimensions; i++) {
-            coordinates[i] = Math.pow(exp, coordinates[i]);
+            coordinates[i] = Math.pow(coordinates[i], exp);
         }
     }
 
