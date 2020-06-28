@@ -39,10 +39,10 @@ public class Test {
         output.add(o2);
         output.add(o3);
         output.add(o4);
+        System.out.println("before :"+m.evaluate(input));
+        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 1000);
 
-        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 2);
-
-        System.out.println(m.evaluate(input));
+        System.out.println("answer :"+m.evaluate(input));
 
     }
 

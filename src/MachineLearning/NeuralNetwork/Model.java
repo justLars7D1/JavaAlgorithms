@@ -28,13 +28,13 @@ public class Model {
     //TODO: Add batch size later for better tuning
     public void train(Vector[] xs, Vector[] ys, int numIterations) {
         assert xs.length == ys.length;
-        System.out.println(this + "\n");
+//        System.out.println(this + "\n");
         for (int i = 0; i < numIterations; i++) {
             for (int j = 0; j < xs.length; j++) {
                 List<Vector[]> resultingData = evaluateForTraining(xs[j]);
                 backPropagate(resultingData, ys[j], xs[j]);
             }
-            System.out.println(this + "\n");
+//            System.out.println(this + "\n");
         }
     }
 
@@ -65,12 +65,14 @@ public class Model {
         Vector[] lastData = intermediateData.get(layers.size()-1);
 
         // The error gradient for the last layer. We use this to update the weights
-        Vector error = lossFunction.evalDerivative(lastData[1], yActual);
+        //Vector error = lossFunction.evalDerivative(lastData[1], yActual);
+        Vector error = lastData[1].getSubtracted(yActual);
+        error.scale(2);//this is hard code => change it
         error.multiply(lastLayer.getActivation().evalDerivative(lastData[0]));
-        System.out.println("Output:" + lastData[1]);
-        System.out.println("Actual: " + yActual);
-        System.out.println(lastData[0]);
-        System.out.println(lastData[1]);
+//        System.out.println("Output:" + lastData[1]);
+//        System.out.println("Actual: " + yActual);
+//        System.out.println(lastData[0]);
+//        System.out.println(lastData[1]);
 
         //TODO: Fix black box bug (error lots of 0)
 
