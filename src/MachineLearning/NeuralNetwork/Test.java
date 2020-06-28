@@ -10,7 +10,7 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        Model m = new Model(2, 5, new MSE());
+        Model m = new Model(2, 1, new MSE());
         m.addLayer(2, new Sigmoid());
         m.addLayer(1, new Sigmoid());
 
@@ -39,16 +39,9 @@ public class Test {
         output.add(o3);
         output.add(o4);
 
-        TrainingData data = m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 100);
+        TrainingData data = m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 1000);
 
         System.out.println(m.evaluate(input));
-
-        System.out.println(data);
-
-//        int c = 0;
-//        for (double error : data.getErrors()) {
-//            System.out.println("Iteration " + c++ + ": " + error);
-//        }
 
     }
 

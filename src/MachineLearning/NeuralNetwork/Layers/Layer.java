@@ -53,11 +53,11 @@ public class Layer {
         int[] size = representation.getSize();
         for (int i = 0; i < size[0]; i++) {
             for (int j = 0; j < size[1]; j++) {
-                representation.set(i, j, -1 + 2*Math.random());
+                representation.set(i, j, -2 + 4*Math.random());
             }
         }
         for (int i = 0; i < bias.getDimensions(); i++) {
-            bias.set(i, -1 + 2*Math.random());
+            bias.set(i, -2 + 4*Math.random());
         }
     }
 
