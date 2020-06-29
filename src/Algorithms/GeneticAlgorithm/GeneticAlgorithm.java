@@ -96,7 +96,7 @@ public class GeneticAlgorithm {
             Agent newAgent = new Agent(num_weights, 0, 0);
             double[] weightsHolder = new double[num_weights];
 
-            int splitIndex = (int) Math.random()*num_weights;
+            int splitIndex = (int) (Math.random() * num_weights);
             int chosenFirstAgent = (Math.random() < 0.5) ? 0 : 1;
             for(int j = 0; j < num_weights; j++) {
                 if (j <= splitIndex) {

@@ -56,9 +56,9 @@ public class Layer {
                 representation.set(i, j, -2 + 4*Math.random());
             }
         }
-        for (int i = 0; i < bias.getDimensions(); i++) {
-            bias.set(i, -2 + 4*Math.random());
-        }
+//        for (int i = 0; i < bias.getDimensions(); i++) {
+//            bias.set(i, -2 + 4*Math.random());
+//        }
     }
 
     public Activation getActivation() {

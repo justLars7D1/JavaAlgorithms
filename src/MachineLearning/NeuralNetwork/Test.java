@@ -14,6 +14,7 @@ public class Test {
         m.addLayer(2, new Sigmoid());
         m.addLayer(1, new Sigmoid());
 
+//        XOR:
 //        0	0	0
 //        0	1	1
 //        1	0	1
