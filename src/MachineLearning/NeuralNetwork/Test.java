@@ -1,5 +1,6 @@
 package MachineLearning.NeuralNetwork;
 
+import MachineLearning.NeuralNetwork.Activations.ReLu;
 import MachineLearning.NeuralNetwork.Activations.Sigmoid;
 import MachineLearning.NeuralNetwork.Losses.MSE;
 import Mathematics.LinearAlgebra.Vector;
@@ -10,9 +11,9 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        Model m = new Model(2, 1, new MSE());
-        m.addLayer(2, new Sigmoid());
-        m.addLayer(1, new Sigmoid());
+        ModelTest m = new ModelTest(2, 0.1, new MSE());
+        m.addLayer(2, new ReLu());
+        m.addLayer(1, new ReLu());
 
 //        XOR:
 //        0	0	0
@@ -40,9 +41,12 @@ public class Test {
         output.add(o3);
         output.add(o4);
 
-        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 1000);
+        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 10000);
 
         System.out.println(m.evaluate(input));
+
+        System.out.println(m);
+
 
     }
 

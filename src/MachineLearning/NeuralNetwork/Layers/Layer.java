@@ -65,8 +65,22 @@ public class Layer {
         return activation;
     }
 
+    public String toString(int id) {
+        String res = "---- Layer " + id + ": Dense ----\n";
+        res += "Weights: \n";
+        res += representation;
+        res += "Bias: \n";
+        res += bias;
+        return res;
+    }
+
     @Override
     public String toString() {
-        return "Layer {\n" + representation + bias + "\n}";
+        String res = "---- Dense layer ----\n";
+        res += "Weights: \n";
+        res += representation;
+        res += "Bias: \n";
+        res += bias;
+        return res;
     }
 }

@@ -127,10 +127,12 @@ public class Model {
 
     @Override
     public String toString() {
-        StringBuilder res = new StringBuilder();
+        StringBuilder res = new StringBuilder("Model Overview\n");
+        int idCounter = 0;
         for (Layer l : layers) {
-            res.append(l).append("\n");
+            res.append(l.toString(idCounter++)).append("\n");
         }
+        res.append("---------------------");
         return res.toString();
     }
 }
