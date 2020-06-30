@@ -41,7 +41,7 @@ public class Test {
         output.add(o3);
         output.add(o4);
 
-        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 10000);
+        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 10000, 3);
 
         System.out.println(m.evaluate(input));
 

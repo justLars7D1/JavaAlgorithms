@@ -40,7 +40,7 @@ public class ModelTest extends Model {
 
         System.out.println(m.evaluate(xs[0]).getSubtracted(ys[0]).getExponentScaled(2) + "\n");
 
-        m.train(xs, ys, 10000);
+        m.train(xs, ys, 10000, 2);
 
         System.out.println(m + "\n");
 

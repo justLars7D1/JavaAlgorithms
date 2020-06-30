@@ -6,8 +6,7 @@ import MachineLearning.NeuralNetwork.Losses.Loss;
 import Mathematics.LinearAlgebra.Matrix;
 import Mathematics.LinearAlgebra.Vector;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Model {
 
@@ -26,12 +25,13 @@ public class Model {
     }
 
     //TODO: Add batch size later for better tuning
-    public void train(Vector[] xs, Vector[] ys, int numIterations) {
+    public void train(Vector[] xs, Vector[] ys, int epochs, int batchSize) {
         assert xs.length == ys.length;
-        for (int i = 0; i < numIterations; i++) {
-            for (int j = 0; j < xs.length; j++) {
-                List<Vector[]> resultingData = evaluateForTraining(xs[j]);
-                backPropagate(resultingData, ys[j], xs[j]);
+        TrainingBatch[] batches = createBatches(xs, ys, batchSize);
+        for (int i = 0; i < epochs; i++) {
+            for (int j = 0; j < batches.length; j++) {
+                List<List<Vector[]>> resultingData = evaluateForTraining(batches[j]);
+                backPropagate(resultingData, batches[j]);
             }
         }
     }
@@ -58,15 +58,44 @@ public class Model {
         layers.add(new Layer(lastOutputSize, numNeurons, activation));
     }
 
-    private void backPropagate(List<Vector[]> intermediateData, Vector yActual, Vector x) {
+    private TrainingBatch[] createBatches(Vector[] xs, Vector[] ys, int batchSize) {
+        Random rand = new Random();
+
+        int numBatches = (int) Math.ceil(xs.length / (double) batchSize);
+        TrainingBatch[] batches = new TrainingBatch[numBatches];
+
+        List<Integer> samplesLeft = new ArrayList<>();
+        for (int i = 0; i < xs.length; i++) samplesLeft.add(i);
+
+        for (int batchNumber = 0; batchNumber < numBatches; batchNumber++) {
+            int sizeOfBatch = Math.min(batchSize, samplesLeft.size());
+            Vector[] xsBatch = new Vector[sizeOfBatch];
+            Vector[] ysBatch = new Vector[sizeOfBatch];
+
+            for (int i = 0; i < batchSize && samplesLeft.size() > 0; i++) {
+                int randomIndex = rand.nextInt(samplesLeft.size());
+                int sampleID = samplesLeft.get(randomIndex);
+                xsBatch[i] = xs[sampleID];
+                ysBatch[i] = ys[sampleID];
+                samplesLeft.remove(randomIndex);
+            }
+
+            batches[batchNumber] = new TrainingBatch(xsBatch, ysBatch);
+        }
+        return batches;
+    }
+
+    private void backPropagate(List<List<Vector[]>> intermediateData, TrainingBatch batch) {
+        Vector[] xs = batch.getXs();
+        Vector[] ys = batch.getYs();
+
         Layer lastLayer = layers.get(layers.size()-1);
+        //TODO: Finish logic of SGD with batches
         Vector[] lastData = intermediateData.get(layers.size()-1);
 
         // The error gradient for the last layer. We use this to update the weights
         Vector error = lossFunction.evalDerivative(lastData[1], yActual);
         error.multiply(lastLayer.getActivation().evalDerivative(lastData[0]));
-
-        //TODO: Fix black box bug (error lots of 0)
 
         Vector nextLayerError = (Vector) error.clone();
         Matrix nextLayerWeights = (Matrix) lastLayer.getRepresentation().clone();
@@ -111,15 +140,20 @@ public class Model {
 
     }
 
-    private List<Vector[]> evaluateForTraining(Vector input) {
-        assert input.getDimensions() == inputSize;
-        List<Vector[]> currentOutput = new ArrayList<>();
-        Vector currentInput = (Vector) input.clone();
+    private List<List<Vector[]>> evaluateForTraining(TrainingBatch inputBatch) {
+        List<List<Vector[]>> currentOutput = new ArrayList<>();
+        Vector[] xs = inputBatch.getXs();
 
-        for (Layer l: layers) {
-            Vector[] layerData = l.evaluateTraining(currentInput);
-            currentOutput.add(layerData);
-            currentInput = (Vector) layerData[1].clone();
+        for (Vector x : xs) {
+            List<Vector[]> tempOutput = new ArrayList<>();
+            Vector currentInput = (Vector) x.clone();
+
+            for (Layer l : layers) {
+                Vector[] layerData = l.evaluateTraining(currentInput);
+                tempOutput.add(layerData);
+                currentInput = (Vector) layerData[1].clone();
+            }
+            currentOutput.add(tempOutput);
         }
 
         return currentOutput;
