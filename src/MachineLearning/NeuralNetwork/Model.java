@@ -12,7 +12,7 @@ import java.util.List;
 public class Model {
 
     private final int inputSize;
-    private List<Layer> layers;
+    protected List<Layer> layers;
 
     private final double learningRate;
     private final Loss lossFunction;
@@ -26,23 +26,14 @@ public class Model {
     }
 
     //TODO: Add batch size later for better tuning
-    public TrainingData train(Vector[] xs, Vector[] ys, int numIterations) {
-        TrainingData result = new TrainingData();
+    public void train(Vector[] xs, Vector[] ys, int numIterations) {
         assert xs.length == ys.length;
         for (int i = 0; i < numIterations; i++) {
-            double loss = 0;
             for (int j = 0; j < xs.length; j++) {
                 List<Vector[]> resultingData = evaluateForTraining(xs[j]);
                 backPropagate(resultingData, ys[j], xs[j]);
-
-                Vector lossVector = lossFunction.evaluate(evaluate(xs[j]), ys[j]);
-                for (int k = 0; k < lossVector.getDimensions(); k++) {
-                    loss += lossVector.get(k) / lossVector.getDimensions();
-                }
             }
-            result.addError(loss / xs.length);
         }
-        return result;
     }
 
     public List<Vector> evaluate(List<Vector> input) {

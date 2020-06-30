@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaAlgorithms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaAlgorithms.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/license &amp; readme/DL_LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/license &amp; readme/DL_README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/license &amp; readme/GA_LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/license &amp; readme/GA_README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/GeneticAlgorithm/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/GeneticAlgorithm/GeneticAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/MachineLearning/NeuralNetwork/Layers/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/MachineLearning/NeuralNetwork/Layers/Layer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/MachineLearning/NeuralNetwork/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/MachineLearning/NeuralNetwork/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/GeneticAlgorithm/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/GeneticAlgorithm/GeneticAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Layers/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/MSE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/MSE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +52,8 @@
       <list>
         <option value="Interface" />
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -114,7 +104,7 @@
       <recent name="D:\Projects\JavaAlgorithms\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ActivationTest">
+  <component name="RunManager" selected="Application.ModelTest">
     <configuration name="Bleh" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Bleh" />
       <module name="JavaAlgorithms" />
@@ -141,8 +131,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Test" />
+    <configuration name="ModelTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.ModelTest" />
       <module name="JavaAlgorithms" />
       <extension name="coverage">
         <pattern>
@@ -154,12 +144,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="NumericalAnalysis.DifferentialEquations.Test" />
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Test" />
       <module name="JavaAlgorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Mathematics.Functions.*" />
+          <option name="PATTERN" value="MachineLearning.NeuralNetwork.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -224,19 +214,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Test (1)" />
       <item itemvalue="Application.GeneticAlgorithm" />
       <item itemvalue="Application.Bleh" />
       <item itemvalue="JUnit.ActivationTest" />
+      <item itemvalue="Application.ModelTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ModelTest" />
         <item itemvalue="JUnit.ActivationTest" />
         <item itemvalue="Application.Bleh" />
         <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.GeneticAlgorithm" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -289,7 +279,8 @@
       <workItem from="1593270432608" duration="12962000" />
       <workItem from="1593354010769" duration="3209000" />
       <workItem from="1593357539046" duration="716000" />
-      <workItem from="1593455932913" duration="2147000" />
+      <workItem from="1593455932913" duration="2617000" />
+      <workItem from="1593501960996" duration="1744000" />
     </task>
     <servers />
   </component>
@@ -337,22 +328,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593457950631" />
-    <state width="1493" height="321" key="GridCell.Tab.0.bottom" timestamp="1593458297633">
+    <state width="1493" height="471" key="GridCell.Tab.0.bottom" timestamp="1593503709643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="321" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593458297633" />
-    <state width="1493" height="321" key="GridCell.Tab.0.center" timestamp="1593458297633">
+    <state width="1493" height="471" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593503709643" />
+    <state width="1493" height="471" key="GridCell.Tab.0.center" timestamp="1593503709643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="321" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593458297633" />
-    <state width="1493" height="321" key="GridCell.Tab.0.left" timestamp="1593458297633">
+    <state width="1493" height="471" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593503709643" />
+    <state width="1493" height="471" key="GridCell.Tab.0.left" timestamp="1593503709643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="321" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593458297633" />
-    <state width="1493" height="321" key="GridCell.Tab.0.right" timestamp="1593458297633">
+    <state width="1493" height="471" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593503709643" />
+    <state width="1493" height="471" key="GridCell.Tab.0.right" timestamp="1593503709643">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="321" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593458297633" />
+    <state width="1493" height="471" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593503709643" />
     <state width="1493" height="269" key="GridCell.Tab.1.bottom" timestamp="1593357240281">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -377,10 +368,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1593204384156" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593456041641">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593501962342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593456041641" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593501962342" />
     <state x="510" y="303" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593457219828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
