@@ -19,6 +19,9 @@ public class ModelTest extends Model {
     }
 
     public static void main(String[] args) {
+
+        // Example from https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
+
         ModelTest m = new ModelTest(2, 0.5, new MSE());
         m.addLayer(2, new Sigmoid());
         m.addLayer(2, new Sigmoid());

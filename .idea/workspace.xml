@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/MSE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Losses/MSE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/ModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +276,7 @@
       <workItem from="1593354010769" duration="3209000" />
       <workItem from="1593357539046" duration="716000" />
       <workItem from="1593455932913" duration="2617000" />
-      <workItem from="1593501960996" duration="1744000" />
+      <workItem from="1593501960996" duration="1776000" />
     </task>
     <servers />
   </component>
