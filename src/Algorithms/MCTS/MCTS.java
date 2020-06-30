@@ -1,52 +1,61 @@
 package Algorithms.MCTS;
 
 import Algorithms.MCTS.SearchFunctions.SearchFunction;
-import Algorithms.MCTS.SearchFunctions.UCB1;
+import Algorithms.MCTS.StoppingConditions.StoppingCondition;
 
 import java.util.List;
 import java.util.Random;
 
-public class MCTS {
+/**
+ * MCTS is a class that contains all logic and some implemented part of the Monte Carlo Tree Search method
+ */
+public abstract class MCTS {
 
-    private static final SearchFunction explorationFunction = new UCB1();
+    /**
+     * The function we will use to evaluate which state to explore next,
+     * Making a trade-off between exploration and exploitation
+     */
+    private final SearchFunction explorationFunction;
 
-    private static MCTS mctsTraversal;
+    /**
+     * The stopping condition for the entire algorithm.
+     * (Usually we use time for this, but this can be defined by the implementor themselves this way)
+     */
+    private final StoppingCondition stoppingCondition;
 
-    private MCTS() {};
-
-    public static MCTS getInstance() {
-        if (mctsTraversal == null) mctsTraversal = new MCTS();
-        return mctsTraversal;
+    /**
+     * Constructor
+     *
+     * @param searchFunction    The search evaluation function
+     * @param stoppingCondition The stopping condition
+     */
+    public MCTS(SearchFunction searchFunction, StoppingCondition stoppingCondition) {
+        this.explorationFunction = searchFunction;
+        this.stoppingCondition = stoppingCondition;
     }
 
+    /**
+     * Find the best action to perform next. This is the heart of the class
+     *
+     * @param stateNode The current state to explore
+     * @return The best action to take in this current state
+     */
     public Action findBestAction(StateNode stateNode) {
-        // Define stopping condition here (usually time is used)
-        double startTime = System.nanoTime();
-        double MSTermination = 3000;
-        while ((((double) System.nanoTime()) - startTime) < MSTermination) {
+        stoppingCondition.init();
+
+        while (!stoppingCondition.isReached()) {
             updateTree(stateNode);
         }
+
         return selectBestAction(stateNode);
     }
 
-    private Action selectBestAction(StateNode s) {
-        List<StateNode> children = s.getChildNodes();
-        Action[] actions = s.getActions();
-        double highestAvgValue = 0;
-        Action bestAction = actions[0];
 
-        for (int i = 0; i < actions.length; i++) {
-            StateNode correspondingState = children.get(i);
-            double avgValue = correspondingState.getTotalScore() / correspondingState.getNumTimesSampled();
-            if (avgValue > highestAvgValue) {
-                highestAvgValue = avgValue;
-                bestAction = actions[i];
-            }
-        }
-
-        return bestAction;
-    }
-
+    /**
+     * Updates the tree values in the tree. This corresponds to one iteration of the algorithm.
+     *
+     * @param stateNode The state to explore
+     */
     private void updateTree(StateNode stateNode) {
         StateNode currentNode = stateNode;
         while (!currentNode.isLeafNode()) {
@@ -60,6 +69,12 @@ public class MCTS {
         backPropagate(currentNode, rolloutValue);
     }
 
+    /**
+     * Perform the rollout phase of the algorithm. Basically the Monte Carlo Simulation part
+     *
+     * @param currentState The state to perform the rollout on
+     * @return The value that comes from the simulation
+     */
     private double rollout(StateNode currentState) {
         // Loop until stopping condition
         while (true) {
@@ -71,6 +86,12 @@ public class MCTS {
         }
     }
 
+    /**
+     * Propagate the score back to the top of the tree, updating the states and their parents
+     *
+     * @param currentState    The current state that rollout was performed on
+     * @param simulationValue The value given by the simulation/rollout
+     */
     private void backPropagate(StateNode currentState, double simulationValue) {
         while (currentState.hasParent()) {
             currentState.addSampled();
@@ -79,15 +100,49 @@ public class MCTS {
         }
     }
 
-    private double calculateValue(StateNode s) {
-        return 0;
+    /**
+     * Selects the best action to perform in a state based on the scoring results of the tree search
+     *
+     * @param s The state to select the best action of
+     * @return The best action
+     */
+    private Action selectBestAction(StateNode s) {
+        List<StateNode> children = s.getChildNodes();
+        Action[] actions = s.getActions();
+        double highestAvgValue = 0;
+        Action bestAction = actions[0];
+
+        for (int i = 0; i < actions.length; i++) {
+            StateNode correspondingState = children.get(i);
+            double avgValue = correspondingState.getTotalScore() / correspondingState.getSampleCount();
+            if (avgValue > highestAvgValue) {
+                highestAvgValue = avgValue;
+                bestAction = actions[i];
+            }
+        }
+
+        return bestAction;
     }
 
+    /**
+     * Chooses a random action using a uniform distribution (all numbers have about equal probability)
+     *
+     * @param s The state
+     * @return The randomly selected action
+     */
     private Action chooseRandomAction(StateNode s) {
         Random rand = new Random();
         Action[] actions = s.getActions();
         int index = rand.nextInt(actions.length);
         return actions[index];
     }
+
+    /**
+     * Calculate the value of a state
+     *
+     * @param s The state to get the value of
+     * @return The value of a state
+     */
+    protected abstract double calculateValue(StateNode s);
 
 }
