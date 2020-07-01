@@ -46,7 +46,9 @@ public class UCB1 implements SearchFunction {
         int parentTimesExplored = s.getParent().getSampleCount();
         int timesExplored = s.getSampleCount();
         double averageValue = totalScore / timesExplored;
-        return averageValue + traversalConstant * Math.sqrt(Math.log(parentTimesExplored) / timesExplored);
+        double UCB1Score = averageValue + traversalConstant * Math.sqrt(Math.log(parentTimesExplored) / timesExplored);
+        if (Double.isNaN(UCB1Score)) UCB1Score = Double.POSITIVE_INFINITY;
+        return UCB1Score;
     }
 
 }

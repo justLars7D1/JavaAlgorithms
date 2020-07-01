@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * MCTS is a class that contains all logic and some implemented part of the Monte Carlo Tree Search method
  */
-public abstract class MCTS {
+public class MCTS {
 
     /**
      * The function we will use to evaluate which state to explore next,
@@ -59,7 +59,7 @@ public abstract class MCTS {
     private void updateTree(StateNode stateNode) {
         StateNode currentNode = stateNode;
         while (!currentNode.isLeafNode()) {
-            currentNode = explorationFunction.findBestStateToExplore(stateNode);
+            currentNode = explorationFunction.findBestStateToExplore(currentNode);
         }
         if (currentNode.getSampleCount() != 0) {
             // Get first new child node after performing the actions
@@ -79,7 +79,7 @@ public abstract class MCTS {
         // Loop until stopping condition
         while (true) {
             if (currentState.isTerminal()) {
-                return calculateValue(currentState);
+                return currentState.calculateStateValue();
             }
             Action randomAction = chooseRandomAction(currentState);
             currentState = currentState.simulate(randomAction);
@@ -93,7 +93,10 @@ public abstract class MCTS {
      * @param simulationValue The value given by the simulation/rollout
      */
     private void backPropagate(StateNode currentState, double simulationValue) {
-        while (currentState.hasParent()) {
+        currentState.addSampled();
+        currentState.addToTotalScore(simulationValue);
+        currentState = currentState.getParent();
+        while (currentState != null) {
             currentState.addSampled();
             currentState.addToTotalScore(simulationValue);
             currentState = currentState.getParent();
@@ -136,13 +139,5 @@ public abstract class MCTS {
         int index = rand.nextInt(actions.length);
         return actions[index];
     }
-
-    /**
-     * Calculate the value of a state
-     *
-     * @param s The state to get the value of
-     * @return The value of a state
-     */
-    protected abstract double calculateValue(StateNode s);
 
 }

@@ -9,5 +9,5 @@ public interface Action {
      *
      * @return The new state after performing the action
      */
-    StateNode perform();
+    StateNode perform(StateNode state);
 }

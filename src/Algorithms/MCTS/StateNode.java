@@ -37,8 +37,9 @@ public abstract class StateNode implements State {
     /**
      * The default constructor
      */
-    public StateNode() {
+    public StateNode(Action[] actions) {
         childNodes = new ArrayList<>();
+        this.actions = actions;
     }
 
     /**
@@ -49,9 +50,12 @@ public abstract class StateNode implements State {
     public StateNode performActions() {
         StateNode firstNewChildNode = null;
         for (int i = 0; i < actions.length; i++) {
-            StateNode newState = actions[i].perform();
+            StateNode newState = actions[i].perform(this);
+
+            newState.parent = this;
+
             if (firstNewChildNode == null) firstNewChildNode = newState;
-            childNodes.set(i, newState);
+            childNodes.add(newState);
         }
         return firstNewChildNode;
     }
@@ -70,6 +74,12 @@ public abstract class StateNode implements State {
      * @return The state that comes forward from this simulation
      */
     public abstract StateNode simulate(Action a);
+
+    /**
+     * Calculate the value of the given state node
+     * @return The state value
+     */
+    public abstract double calculateStateValue();
 
     /**
      * Get the child nodes of the state
