@@ -18,6 +18,8 @@ public class TestAction implements Action {
         double val = 0;
         if (type == 'r') {
             val = 10;
+        } else if (type == 'l') {
+            val = 15;
         }
         return new GameState(a, val);
     }

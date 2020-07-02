@@ -14,7 +14,7 @@ public class Main {
         GameState initialState = new GameState(actions, value);
 
         SearchFunction f = new UCB1();
-        StoppingCondition s = new TimeCondition(20);
+        StoppingCondition s = new TimeCondition(2000);
         MCTS searchAlgorithm = new MCTS(f, s);
 
         Action a = searchAlgorithm.findBestAction(initialState);

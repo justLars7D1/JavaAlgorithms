@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/MCTS/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/MCTS/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/MCTS/MCTS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/MCTS/MCTS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/MCTS/TEST/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/MCTS/TEST/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/MCTS/TEST/TestAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaAlgorithms/Algorithms/MCTS/TEST/TestAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Algorithms/MCTS/MCTS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/MCTS/MCTS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/MCTS/SearchFunctions/UCB1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/MCTS/SearchFunctions/UCB1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms/MCTS/StateNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/MCTS/StateNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/ModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms/MCTS/TEST/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/MCTS/TEST/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms/MCTS/TEST/TestAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms/MCTS/TEST/TestAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,20 @@
       <recent name="D:\Projects\JavaAlgorithms\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TicTacToe.Main" />
+      <module name="JavaAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TicTacToe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Algorithms.MCTS.TEST.Main" />
       <module name="JavaAlgorithms" />
@@ -188,35 +200,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ActivationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaAlgorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MachineLearning.NeuralNetwork.Activations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MachineLearning.NeuralNetwork.Activations" />
-      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Activations.ActivationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Test" />
       <item itemvalue="Application.Test (1)" />
       <item itemvalue="Application.ModelTest" />
-      <item itemvalue="JUnit.ActivationTest" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.ModelTest" />
         <item itemvalue="Application.Test (1)" />
-        <item itemvalue="JUnit.ActivationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +271,8 @@
       <workItem from="1593510645130" duration="2068000" />
       <workItem from="1593513900062" duration="230000" />
       <workItem from="1593514342187" duration="7797000" />
-      <workItem from="1593604915396" duration="5183000" />
+      <workItem from="1593604915396" duration="5504000" />
+      <workItem from="1593683836678" duration="4382000" />
     </task>
     <servers />
   </component>
@@ -302,10 +300,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589634932640" />
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1593607634780">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1593686127545">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593607634780" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593686127545" />
     <state x="532" y="172" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1593457933818">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -322,38 +320,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593523208273" />
-    <state width="1493" height="450" key="GridCell.Tab.0.bottom" timestamp="1593610106437">
+    <state width="1493" height="502" key="GridCell.Tab.0.bottom" timestamp="1593688220868">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="450" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593610106437" />
-    <state width="1493" height="450" key="GridCell.Tab.0.center" timestamp="1593610106437">
+    <state width="1493" height="502" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593688220868" />
+    <state width="1493" height="502" key="GridCell.Tab.0.center" timestamp="1593688220867">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="450" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593610106437" />
-    <state width="1493" height="450" key="GridCell.Tab.0.left" timestamp="1593610106437">
+    <state width="1493" height="502" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593688220867" />
+    <state width="1493" height="502" key="GridCell.Tab.0.left" timestamp="1593688220867">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="450" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593610106437" />
-    <state width="1493" height="450" key="GridCell.Tab.0.right" timestamp="1593610106437">
+    <state width="1493" height="502" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593688220867" />
+    <state width="1493" height="502" key="GridCell.Tab.0.right" timestamp="1593688220867">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="450" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593610106437" />
-    <state width="1493" height="269" key="GridCell.Tab.1.bottom" timestamp="1593609282056">
+    <state width="1493" height="502" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593688220867" />
+    <state width="1493" height="269" key="GridCell.Tab.1.bottom" timestamp="1593688034414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593609282056" />
-    <state width="1493" height="269" key="GridCell.Tab.1.center" timestamp="1593609282056">
+    <state width="1493" height="269" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593688034414" />
+    <state width="1493" height="269" key="GridCell.Tab.1.center" timestamp="1593688034414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593609282056" />
-    <state width="1493" height="269" key="GridCell.Tab.1.left" timestamp="1593609282056">
+    <state width="1493" height="269" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593688034414" />
+    <state width="1493" height="269" key="GridCell.Tab.1.left" timestamp="1593688034413">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593609282056" />
-    <state width="1493" height="269" key="GridCell.Tab.1.right" timestamp="1593609282056">
+    <state width="1493" height="269" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593688034413" />
+    <state width="1493" height="269" key="GridCell.Tab.1.right" timestamp="1593688034414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="269" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593609282056" />
+    <state width="1493" height="269" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593688034414" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1593457232568">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -362,10 +360,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1593204384156" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593604914408">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593683836795">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593604914408" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593683836795" />
     <state x="510" y="303" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593457219828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -382,10 +380,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1593354089572" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593608172460">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593686660909">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593608172460" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593686660909" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/JavaAlgorithms$Test.ic" NAME="Test Coverage Results" MODIFIED="1593202384244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

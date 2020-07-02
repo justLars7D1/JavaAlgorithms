@@ -63,7 +63,7 @@ public class MCTS {
         }
         if (currentNode.getSampleCount() != 0) {
             // Get first new child node after performing the actions
-            currentNode = currentNode.performActions();
+            if (!currentNode.isTerminal()) currentNode = currentNode.performActions();
         }
         double rolloutValue = rollout(currentNode);
         backPropagate(currentNode, rolloutValue);
