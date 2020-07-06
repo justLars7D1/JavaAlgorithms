@@ -108,4 +108,16 @@ public class Matrix {
         }
         return str.toString();
     }
+
+    @Override
+    public boolean equals(Object other){
+        if(!(other instanceof Matrix)) return false;
+        if(getSize()[0]!=((Matrix) other).getSize()[0]||getSize()[1]!=((Matrix) other).getSize()[1]) return false;
+        for(int i=0; i<getSize()[0];i++){
+            for(int j=0;j<getSize()[1];j++){
+                if(grid[i][j]!=((Matrix) other).get(i, j)) return false;
+            }
+        }
+        return true;
+    }
 }
