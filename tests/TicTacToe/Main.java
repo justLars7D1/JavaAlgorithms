@@ -9,7 +9,6 @@ import Algorithms.MCTS.StoppingConditions.StoppingCondition;
 import Algorithms.MCTS.StoppingConditions.TimeCondition;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,22 +41,21 @@ public class Main {
             a = searchAlgorithm.findBestAction(initialState);
 
         }
-
-
+        
     }
 
     public static void recurse(GameState s, int depth) {
         List<StateNode> children = s.getChildNodes();
         printBoard(s.getBoard());
         System.out.println("Depth: " + depth);
-        for (StateNode c: children) {
-            recurse((GameState) c, depth+1);
+        for (StateNode c : children) {
+            recurse((GameState) c, depth + 1);
         }
     }
 
     public static void printBoard(int[][] board) {
-        for (int[] row: board) {
-            for (int cell: row) {
+        for (int[] row : board) {
+            for (int cell : row) {
                 System.out.print(cell + " ");
             }
             System.out.println();
