@@ -29,7 +29,7 @@ public class TrainingBatch {
         return xs.length;
     }
 
-    public static TrainingBatch[] generateRandomBatches(Vector[] xs, Vector[] ys, int batchSize) {
+    public static TrainingBatch[] generateUniformlyRandomBatches(Vector[] xs, Vector[] ys, int batchSize) {
         assert xs.length == ys.length;
         int numBatches = (int) Math.ceil(((double) xs.length)/batchSize);
         TrainingBatch[] batches = new TrainingBatch[numBatches];

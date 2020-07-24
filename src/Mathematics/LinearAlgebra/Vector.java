@@ -128,6 +128,11 @@ public class Vector implements Cloneable {
         return copy;
     }
 
+    public Matrix getTransposed() {
+        Matrix o = new Matrix(this);
+        return o.getTransposed();
+    }
+
     public double getDotProduct(Vector otherVector) {
         int dimensions = getDimensions();
         assert dimensions == otherVector.getDimensions();

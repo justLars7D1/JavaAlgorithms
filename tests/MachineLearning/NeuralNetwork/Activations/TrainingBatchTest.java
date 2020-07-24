@@ -16,7 +16,7 @@ class TrainingBatchTest {
             xs[i] = new Vector(i, i, i);
             ys[i] = new Vector(i, i, i);
         }
-        TrainingBatch[] batches = TrainingBatch.generateRandomBatches(xs, ys, 10);
+        TrainingBatch[] batches = TrainingBatch.generateUniformlyRandomBatches(xs, ys, 10);
         assertEquals(2, batches.length);
     }
 
@@ -28,7 +28,7 @@ class TrainingBatchTest {
             xs[i] = new Vector(i, i, i);
             ys[i] = new Vector(i, i, i);
         }
-        TrainingBatch[] batches = TrainingBatch.generateRandomBatches(xs, ys, 10);
+        TrainingBatch[] batches = TrainingBatch.generateUniformlyRandomBatches(xs, ys, 10);
         assertEquals(10, batches[0].getSize());
     }
 
@@ -40,7 +40,7 @@ class TrainingBatchTest {
             xs[i] = new Vector(i, i, i);
             ys[i] = new Vector(i, i, i);
         }
-        TrainingBatch[] batches = TrainingBatch.generateRandomBatches(xs, ys, 10);
+        TrainingBatch[] batches = TrainingBatch.generateUniformlyRandomBatches(xs, ys, 10);
         assertEquals(5, batches[1].getSize());
 
         for (int i = 0; i < batches.length; i++) {

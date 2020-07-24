@@ -53,6 +53,35 @@ public class Matrix {
         return resultMatrix;
     }
 
+    public void add(Matrix otherMatrix) {
+        assert (otherMatrix.grid.length == grid.length) && (otherMatrix.grid[0].length == grid[0].length);
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                grid[i][j] += otherMatrix.grid[i][j];
+            }
+        }
+    }
+
+    public Matrix getAdded(Matrix otherMatrix) {
+        Matrix copyOfMatrix = (Matrix) clone();
+        copyOfMatrix.add(otherMatrix);
+        return copyOfMatrix;
+    }
+
+    public void scale(double factor) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                grid[i][j] *= factor;
+            }
+        }
+    }
+
+    public Matrix getScaled(double factor) {
+        Matrix copyOfMatrix = (Matrix) clone();
+        copyOfMatrix.scale(factor);
+        return copyOfMatrix;
+    }
+
     public Vector multiply(Vector otherVector) {
         Matrix otherMatrix = new Matrix(otherVector);
         Matrix result = multiply(otherMatrix);

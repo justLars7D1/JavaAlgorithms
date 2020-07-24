@@ -11,10 +11,20 @@ public class Layer {
 
     private Vector bias;
 
+    // The following variables are used for training:
+
+    private Matrix gradientSumWeight;
+    private Vector gradientSumBias;
+
+    private Vector outputBeforeActivation;
+    private Vector outputAfterActivation;
+
     public Layer(int numInputNeurons, int numOutputNeurons, Activation activation) {
         this.activation = activation;
         representation = new Matrix(numOutputNeurons, numInputNeurons);
+        gradientSumWeight = new Matrix(numOutputNeurons, numInputNeurons);
         bias = new Vector(numOutputNeurons);
+        gradientSumBias = new Vector(numOutputNeurons);
         setRandomWeights();
     }
 
@@ -25,16 +35,22 @@ public class Layer {
         return result;
     }
 
-    public Vector[] evaluateTraining(Vector input) {
-        Vector[] result = new Vector[2];
-        result[0] = representation.multiply(input); // This will be the value before the activation is applied
-        result[0].add(bias);
+    public Vector evaluateTraining(Vector input) {
+        outputBeforeActivation = representation.multiply(input); // This will be the value before the activation is applied
+        outputBeforeActivation.add(bias);
 
-        Vector copyOfResult = (Vector) result[0].clone();
+        Vector copyOfResult = (Vector) outputBeforeActivation.clone();
         copyOfResult = activation.evaluate(copyOfResult);
-        result[1] = copyOfResult; // This will be the value after the activation is applied
+        outputAfterActivation = copyOfResult; // This will be the value after the activation is applied
 
-        return result;
+        return outputAfterActivation;
+    }
+
+    public void resetGradients() {
+        gradientSumWeight = new Matrix(gradientSumWeight.getSize());
+        gradientSumBias = new Vector(gradientSumBias.getDimensions());
+        outputBeforeActivation = new Vector(outputBeforeActivation.getDimensions());
+        outputAfterActivation = new Vector(outputAfterActivation.getDimensions());
     }
 
     public Matrix getRepresentation() {
@@ -56,9 +72,25 @@ public class Layer {
                 representation.set(i, j, -2 + 4*Math.random());
             }
         }
-//        for (int i = 0; i < bias.getDimensions(); i++) {
-//            bias.set(i, -2 + 4*Math.random());
-//        }
+        for (int i = 0; i < bias.getDimensions(); i++) {
+            bias.set(i, -2 + 4*Math.random());
+        }
+    }
+
+    public Matrix getGradientSumWeight() {
+        return gradientSumWeight;
+    }
+
+    public Vector getGradientSumBias() {
+        return gradientSumBias;
+    }
+
+    public Vector getOutputBeforeActivation() {
+        return outputBeforeActivation;
+    }
+
+    public Vector getOutputAfterActivation() {
+        return outputAfterActivation;
     }
 
     public Activation getActivation() {
