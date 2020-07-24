@@ -10,6 +10,6 @@ public class MSE implements Loss {
 
     @Override
     public Vector evalDerivative(Vector yPred, Vector yActual) {
-        return yActual.getSubtracted(yPred).getScaled(-1);
+        return yPred.getSubtracted(yActual);
     }
 }

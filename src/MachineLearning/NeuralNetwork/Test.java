@@ -11,9 +11,11 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        Model m = new Model(2, new MSE(), new SGD(1));
+        Model m = new Model(2);
         m.addLayer(2, new Sigmoid());
         m.addLayer(1, new Sigmoid());
+
+        m.compile(new MSE(), new SGD(1), new String[] {"loss", "accuracy"});
 
 //        XOR:
 //        0	0	0
@@ -41,11 +43,12 @@ public class Test {
         output.add(o3);
         output.add(o4);
 
-        m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 1, 100000);
+        MetricCollector collector = m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 1, 1000, 1);
+        collector.saveToFile("D:\\Projects\\JavaAlgorithms\\src\\MachineLearning\\NeuralNetwork\\test.txt");
 
-        System.out.println("Predicted: " + m.evaluate(input));
+        System.out.println("\nPredicted: " + m.evaluate(input));
 
-        System.out.println(m);
+        System.out.println("\n" + m);
 
 
     }

@@ -25,6 +25,12 @@ public class Vector implements Cloneable {
         return coordinates.length;
     }
 
+    public double getVectorSum() {
+        double sum = 0;
+        for (double val: coordinates) sum += val;
+        return sum;
+    }
+
     public void subtract(final Vector otherVector) {
         int dimensions = getDimensions();
         assert dimensions == otherVector.getDimensions();

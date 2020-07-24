@@ -9,6 +9,7 @@ import Mathematics.LinearAlgebra.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Model {
 
@@ -17,19 +18,34 @@ public class Model {
     private final int inputSize;
     protected List<Layer> layers;
 
-    private final Loss lossFunction;
-    private final Optimizer optimizer;
+    private Loss lossFunction;
+    private Optimizer optimizer;
+    private String[] metrics;
 
-    public Model(int inputSize, Loss lossFunction, Optimizer optimizer) {
-        assert (inputSize > 0) && (lossFunction != null) && (optimizer != null);
+    public Model(int inputSize) {
+        assert (inputSize > 0);
         this.inputSize = inputSize;
-        this.lossFunction = lossFunction;
-        this.optimizer = optimizer;
         this.layers = new ArrayList<>();
     }
 
-    public void train(Vector[] xs, Vector[] ys, int batchSize, int epochs) {
+    public void compile(Loss lossFunction, Optimizer optimizer, String[] metrics) {
+        assert (lossFunction != null) && (optimizer != null) && (metrics != null);
+        this.lossFunction = lossFunction;
+        this.optimizer = optimizer;
+        this.metrics = metrics;
+    }
+
+    public MetricCollector train(Vector[] xs, Vector[] ys, int batchSize, int epochs, int verbose) {
         assert xs.length == ys.length;
+        if (lossFunction == null || optimizer == null || metrics == null) {
+            try {
+                throw new UncompiledModelException();
+            } catch (UncompiledModelException e) {
+                return null;
+            }
+        }
+        MetricCollector collector = new MetricCollector();
+        for (String metric: metrics) collector.enableMetric(metric);
         // Shuffling up to user
         TrainingBatch[] batches = TrainingBatch.generateUniformlyRandomBatches(xs, ys, batchSize);
         for (int i = 0; i < epochs; i++) {
@@ -47,7 +63,49 @@ public class Model {
                 this.optimizer.updateWeights(this);
                 this.resetGradients();
             }
+            updateMetrics(xs,ys, collector);
+            if (verbose >= 1) {
+                System.out.print("Epoch " + (i+1) + "/" + epochs + ": ");
+                // Print metrics here
+                for (Map.Entry<String, List<Double>> metric: collector.getMetrics().entrySet()) {
+                    System.out.print(metric.getKey() + " = " + metric.getValue().get(metric.getValue().size()-1) + " ");
+                }
+                System.out.println();
+            }
         }
+        return collector;
+    }
+
+    private void updateMetrics(Vector[] xs, Vector[] ys, MetricCollector collector) {
+        for (String metric: metrics) {
+            double metricVal = calculateMetricValue(metric, xs, ys);
+            collector.addToMetric(metric, metricVal);
+        }
+    }
+
+    private static final double CLASSIFICATION_THRESHOLD = 0.5;
+    private double calculateMetricValue(String metric, Vector[] xs, Vector[] ys) {
+        double val = 0;
+        if (metric.toLowerCase().equals(MetricCollector.EXISTING_METRICS[0])) {
+            for (int i = 0; i < xs.length; i++) {
+                val += lossFunction.evaluate(evaluate(xs[i]), ys[i]).getVectorSum();
+            }
+        } else if (metric.toLowerCase().equals(MetricCollector.EXISTING_METRICS[1]) ||
+                   metric.toLowerCase().equals(MetricCollector.EXISTING_METRICS[2])) {
+            int numCorrect = 0;
+            sampleLoop: for (int i = 0; i < xs.length; i++) {
+                Vector yPred = evaluate(xs[i]);
+                for (int j = 0; j < yPred.getDimensions(); j++) {
+                    if ((yPred.get(j) >= CLASSIFICATION_THRESHOLD && ys[i].get(j) < CLASSIFICATION_THRESHOLD)
+                        || (yPred.get(j) < CLASSIFICATION_THRESHOLD && ys[i].get(j) >= CLASSIFICATION_THRESHOLD)) {
+                        continue sampleLoop;
+                    }
+                }
+                numCorrect++;
+            }
+            val = ((double) numCorrect) / xs.length;
+        }
+        return val;
     }
 
     public void computeGradients(Vector x, Vector y) {
@@ -140,4 +198,8 @@ public class Model {
     public List<Layer> getLayers() {
         return layers;
     }
+
+    static class UncompiledModelException extends Exception {
+    }
+
 }
