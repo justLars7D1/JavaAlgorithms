@@ -4,6 +4,8 @@ import MachineLearning.NeuralNetwork.Activations.Activation;
 import Mathematics.LinearAlgebra.Matrix;
 import Mathematics.LinearAlgebra.Vector;
 
+import java.util.Random;
+
 public class Layer {
 
     private Activation activation;
@@ -66,14 +68,14 @@ public class Layer {
     }
 
     private void setRandomWeights() {
+        // We will use the Xavier uniform initializer
+        Random r = new Random();
         int[] size = representation.getSize();
+        double limit = Math.sqrt(6. / (size[0] + size[1]));
         for (int i = 0; i < size[0]; i++) {
             for (int j = 0; j < size[1]; j++) {
-                representation.set(i, j, -2 + 4*Math.random());
+                representation.set(i, j, -limit + 2 * limit * r.nextDouble());
             }
-        }
-        for (int i = 0; i < bias.getDimensions(); i++) {
-            bias.set(i, -2 + 4*Math.random());
         }
     }
 

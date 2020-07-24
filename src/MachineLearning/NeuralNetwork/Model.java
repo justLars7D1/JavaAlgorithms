@@ -65,8 +65,8 @@ public class Model {
             }
             updateMetrics(xs,ys, collector);
             if (verbose >= 1) {
+                // Iterate and print the metrics
                 System.out.print("Epoch " + (i+1) + "/" + epochs + ": ");
-                // Print metrics here
                 for (Map.Entry<String, List<Double>> metric: collector.getMetrics().entrySet()) {
                     System.out.print(metric.getKey() + " = " + metric.getValue().get(metric.getValue().size()-1) + " ");
                 }

@@ -1,5 +1,6 @@
 package MachineLearning.NeuralNetwork;
 
+import MachineLearning.NeuralNetwork.Activations.ReLu;
 import MachineLearning.NeuralNetwork.Activations.Sigmoid;
 import MachineLearning.NeuralNetwork.Losses.MSE;
 import MachineLearning.NeuralNetwork.Optimizers.SGD;
