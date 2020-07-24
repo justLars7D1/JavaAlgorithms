@@ -11,6 +11,8 @@ import java.util.List;
 
 public class Model {
 
+    private static final double L2REGULARIZATIONFACTOR = 0;
+
     private final int inputSize;
     protected List<Layer> layers;
 
@@ -102,7 +104,7 @@ public class Model {
 
         for (int i = 0; i < dims[0]; i++) {
             for (int j = 0; j < dims[1]; j++) {
-                double newValue = weights.get(i, j) - learningRate * error.get(i) * previousOutput.get(j);
+                double newValue = (1 - learningRate * L2REGULARIZATIONFACTOR) * weights.get(i, j) - learningRate * error.get(i) * previousOutput.get(j);
                 weights.set(i, j, newValue);
             }
             double newBiasValue = bias.get(i) - learningRate * error.get(i);
