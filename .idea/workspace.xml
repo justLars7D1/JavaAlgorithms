@@ -4,6 +4,9 @@
     <list default="true" id="f002d978-3195-49f8-9210-43fa536161af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/ModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/TrainingBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MachineLearning/NeuralNetwork/TrainingBatch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +104,7 @@
       <recent name="D:\Projects\JavaAlgorithms\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="JUnit.TrainingBatchTest.testBatchSizeIndivPartial">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TicTacToe.Main" />
       <module name="JavaAlgorithms" />
@@ -115,45 +118,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Algorithms.MCTS.TEST.Main" />
-      <module name="JavaAlgorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Algorithms.MCTS.TEST.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ModelTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.ModelTest" />
-      <module name="JavaAlgorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MachineLearning.NeuralNetwork.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Test" />
-      <module name="JavaAlgorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MachineLearning.NeuralNetwork.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Test" />
       <module name="JavaAlgorithms" />
@@ -191,24 +155,71 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainingBatchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MachineLearning.NeuralNetwork.Activations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MachineLearning.NeuralNetwork.Activations" />
+      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Activations.TrainingBatchTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainingBatchTest.testBatchSizeIndivPartial" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MachineLearning.NeuralNetwork.Activations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MachineLearning.NeuralNetwork.Activations" />
+      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Activations.TrainingBatchTest" />
+      <option name="METHOD_NAME" value="testBatchSizeIndivPartial" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainingBatchTest.testBatches" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAlgorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MachineLearning.NeuralNetwork.Activations.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MachineLearning.NeuralNetwork.Activations" />
+      <option name="MAIN_CLASS_NAME" value="MachineLearning.NeuralNetwork.Activations.TrainingBatchTest" />
+      <option name="METHOD_NAME" value="testBatches" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Test (1)" />
-      <item itemvalue="Application.ModelTest" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.Main (1)" />
+      <item itemvalue="JUnit.TrainingBatchTest.testBatches" />
+      <item itemvalue="JUnit.TrainingBatchTest" />
+      <item itemvalue="JUnit.TrainingBatchTest.testBatchSizeIndivPartial" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TrainingBatchTest.testBatchSizeIndivPartial" />
+        <item itemvalue="JUnit.TrainingBatchTest" />
+        <item itemvalue="JUnit.TrainingBatchTest.testBatches" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.ModelTest" />
-        <item itemvalue="Application.Test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +282,7 @@
       <workItem from="1593778157411" duration="745000" />
       <workItem from="1595363992747" duration="689000" />
       <workItem from="1595417010155" duration="2369000" />
-      <workItem from="1595585409881" duration="472000" />
+      <workItem from="1595585409881" duration="2081000" />
     </task>
     <servers />
   </component>
@@ -324,22 +335,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593523208273" />
-    <state width="1493" height="502" key="GridCell.Tab.0.bottom" timestamp="1595364422507">
+    <state width="1493" height="502" key="GridCell.Tab.0.bottom" timestamp="1595587533742">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="502" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595364422507" />
-    <state width="1493" height="502" key="GridCell.Tab.0.center" timestamp="1595364422507">
+    <state width="1493" height="502" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595587533742" />
+    <state width="1493" height="502" key="GridCell.Tab.0.center" timestamp="1595587533742">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="502" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595364422507" />
-    <state width="1493" height="502" key="GridCell.Tab.0.left" timestamp="1595364422507">
+    <state width="1493" height="502" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595587533742" />
+    <state width="1493" height="502" key="GridCell.Tab.0.left" timestamp="1595587533742">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="502" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595364422507" />
-    <state width="1493" height="502" key="GridCell.Tab.0.right" timestamp="1595364422507">
+    <state width="1493" height="502" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595587533742" />
+    <state width="1493" height="502" key="GridCell.Tab.0.right" timestamp="1595587533742">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="502" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595364422507" />
+    <state width="1493" height="502" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595587533742" />
     <state width="1493" height="269" key="GridCell.Tab.1.bottom" timestamp="1593688034414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
