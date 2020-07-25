@@ -35,6 +35,61 @@ public class Model {
         this.metrics = metrics;
     }
 
+    public void gradientChecking(Vector x, Vector y) {
+        this.forward(x);
+        this.computeGradients(x, y);
+
+        System.out.println("-------- GRADIENT CHECKING --------");
+
+        double EPSILON = 0.0001;
+        for (int k = 0; k < layers.size(); k++) {
+            System.out.println("Layer " + k + ":\n");
+            Layer l = layers.get(k);
+            Matrix weights = l.getRepresentation();
+            Vector bias = l.getBias();
+            Matrix computedGradients = l.getGradientSumWeight();
+
+            System.out.println("Backpropagation algorithm:");
+            System.out.print("Weights: " + computedGradients);
+            System.out.println("Bias: " + l.getGradientSumBias());
+
+            System.out.println("\nNumerically computed gradient:");
+
+            System.out.print("Weights: ");
+            int[] size = weights.getSize();
+            for (int i = 0; i < size[0]; i++) {
+                for (int j = 0; j < size[1]; j++) {
+                    double oldVal = weights.get(i, j);
+                    weights.set(i, j, oldVal - EPSILON);
+                    double res1 = lossFunction.evaluate(evaluate(x), y).getVectorSum();
+                    weights.set(i, j, oldVal + EPSILON);
+                    double res2 = lossFunction.evaluate(evaluate(x), y).getVectorSum();
+                    weights.set(i, j, oldVal);
+                    System.out.print((res2-res1)/(2*EPSILON) + " ");
+                }
+            }
+
+            System.out.print("\nBias: ");
+            int dims = bias.getDimensions();
+            for (int i = 0; i < dims; i++) {
+                double oldVal = bias.get(i);
+                bias.set(i, oldVal - EPSILON);
+                double res1 = lossFunction.evaluate(evaluate(x), y).getVectorSum();
+                bias.set(i, oldVal + EPSILON);
+                double res2 = lossFunction.evaluate(evaluate(x), y).getVectorSum();
+                bias.set(i, oldVal);
+                System.out.print((res2-res1)/(2*EPSILON) + " ");
+            }
+
+            System.out.println("\n");
+
+        }
+
+        System.out.println("-------- GRADIENT CHECKING --------");
+
+        this.resetGradients();
+    }
+
     public MetricCollector train(Vector[] xs, Vector[] ys, int batchSize, int epochs, int verbose) {
         assert xs.length == ys.length;
         if (lossFunction == null || optimizer == null || metrics == null) {

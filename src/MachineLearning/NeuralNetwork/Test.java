@@ -47,6 +47,8 @@ public class Test {
         MetricCollector collector = m.train(input.toArray(new Vector[0]), output.toArray(new Vector[0]), 1, 1000, 1);
         collector.saveToFile("D:\\Projects\\JavaAlgorithms\\src\\MachineLearning\\NeuralNetwork\\test.txt");
 
+        m.gradientChecking(input.get(0), output.get(0));
+
         System.out.println("\nPredicted: " + m.evaluate(input));
 
         System.out.println("\n" + m);

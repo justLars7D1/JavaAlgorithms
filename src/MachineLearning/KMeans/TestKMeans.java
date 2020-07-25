@@ -17,7 +17,7 @@ public class TestKMeans {
             if (i <= xs.length/2)
                 xs[i] = new Vector(i, 0);
             else
-                xs[i] = new Vector(i, 2);
+                xs[i] = new Vector(i, 10);
         }
 
         System.out.println("Data: " + Arrays.toString(xs));
