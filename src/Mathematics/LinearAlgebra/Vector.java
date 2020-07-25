@@ -110,6 +110,12 @@ public class Vector implements Cloneable {
         return copyOfCurrentVector;
     }
 
+    public void setToZeroVector() {
+        for (int i = 0; i < getDimensions(); i++) {
+            coordinates[i] = 0;
+        }
+    }
+
     public Vector getMultiplied(Vector otherVector) {
         Vector copyOfCurrentVector = (Vector) clone();
         copyOfCurrentVector.multiply(otherVector);
