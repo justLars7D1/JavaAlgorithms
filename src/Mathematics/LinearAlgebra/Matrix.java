@@ -68,6 +68,49 @@ public class Matrix {
         return copyOfMatrix;
     }
 
+    public void add(double v) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                grid[i][j] += v;
+            }
+        }
+    }
+
+    public Matrix getAdded(double v) {
+        Matrix copyOfMatrix = (Matrix) clone();
+        copyOfMatrix.add(v);
+        return copyOfMatrix;
+    }
+
+    public void elementMultiply(Matrix otherMatrix) {
+        assert (otherMatrix.grid.length == grid.length) && (otherMatrix.grid[0].length == grid[0].length);
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                grid[i][j] *= otherMatrix.grid[i][j];
+            }
+        }
+    }
+
+    public Matrix getElementMultiplied(Matrix otherMatrix) {
+        Matrix copyOfMatrix = (Matrix) clone();
+        copyOfMatrix.elementMultiply(otherMatrix);
+        return copyOfMatrix;
+    }
+
+    public void exponentScale(double exp) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                grid[i][j] = Math.pow(grid[i][j], exp);
+            }
+        }
+    }
+
+    public Matrix getExponentScaled(double exp) {
+        Matrix copyOfMatrix = (Matrix) clone();
+        copyOfMatrix.exponentScale(exp);
+        return copyOfMatrix;
+    }
+
     public void scale(double factor) {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {

@@ -15,4 +15,6 @@ public abstract class Optimizer {
 
     public abstract void updateWeights(Model model);
 
+    public abstract void init(Model model);
+
 }

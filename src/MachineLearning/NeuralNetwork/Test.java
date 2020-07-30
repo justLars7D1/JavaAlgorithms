@@ -1,9 +1,10 @@
 package MachineLearning.NeuralNetwork;
 
-import MachineLearning.NeuralNetwork.Activations.ReLu;
 import MachineLearning.NeuralNetwork.Activations.Sigmoid;
 import MachineLearning.NeuralNetwork.Losses.MSE;
+import MachineLearning.NeuralNetwork.Optimizers.RMSProp;
 import MachineLearning.NeuralNetwork.Optimizers.SGD;
+import MachineLearning.NeuralNetwork.Optimizers.SGDMomentum;
 import Mathematics.LinearAlgebra.Vector;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class Test {
         m.addLayer(2, new Sigmoid());
         m.addLayer(1, new Sigmoid());
 
-        m.compile(new MSE(), new SGD(1), new String[] {"loss", "accuracy"});
+        m.compile(new MSE(), new RMSProp(1, 0.999), new String[] {"loss", "accuracy"});
 
 //        XOR:
 //        0	0	0

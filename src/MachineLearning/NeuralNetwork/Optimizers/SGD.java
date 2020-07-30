@@ -32,4 +32,9 @@ public class SGD extends Optimizer {
 
         }
     }
+
+    @Override
+    public void init(Model model) {
+    }
+
 }

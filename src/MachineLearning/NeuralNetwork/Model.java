@@ -99,9 +99,13 @@ public class Model {
                 return null;
             }
         }
+
         MetricCollector collector = new MetricCollector();
         for (String metric: metrics) collector.enableMetric(metric);
-        // Shuffling up to user
+
+        optimizer.init(this);
+
+        // TODO: Shuffling up to user
         TrainingBatch[] batches = TrainingBatch.generateUniformlyRandomBatches(xs, ys, batchSize);
         for (int i = 0; i < epochs; i++) {
             for (TrainingBatch batch: batches) {
