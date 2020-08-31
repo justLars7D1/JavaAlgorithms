@@ -192,4 +192,91 @@ public class Matrix {
         }
         return true;
     }
+
+    /**
+     * return a copy of the matrix without the row and the column
+     * @param row to be ignored while copying
+     * @param col to be ignored while copying
+     * @return the smaller matrix
+     */
+    private Matrix getSmaller(int row, int col){
+        Matrix result = new Matrix(grid.length-1, grid[0].length-1);
+        int ci=0, cj=0;
+        for (int i = 0; i < grid.length; i++) {
+            if(i!=row) {
+                for (int j = 0; j < grid[0].length; j++) {
+                    if(j!=col) result.set(ci, cj++, grid[i][j]);
+                }
+                cj=0;
+                ci++;
+            }
+        }
+        return result;
+    }
+
+    public static double getDeterminant(Matrix m){
+        assert(m.getSize()[0]==m.getSize()[1]);
+        if(m.getSize()[0]>2) {
+        /*
+        Here we want to find the row or column with most zeros?
+        SKIP IF IT IS TOO SLOW
+         */
+            int col = 0, row = 0, maxZerosCol = 0, maxZerosRow = 0;
+            for (int i = 0; i < m.getSize()[0]; i++) {
+                int zerosRow = 0;
+                for (int j = 0; j < m.getSize()[0]; j++) {
+                    if (m.get(i, j) == 0) zerosRow++;
+                }
+                if (zerosRow > maxZerosRow) {
+                    maxZerosRow = zerosRow;
+                    row = i;
+                }
+            }
+            for (int i = 0; i < m.getSize()[0]; i++) {
+                int zerosCol = 0;
+                for (int j = 0; j < m.getSize()[0]; j++) {
+                    if (m.get(j, i) == 0) zerosCol++;
+                }
+                if (zerosCol > maxZerosCol) {
+                    maxZerosCol = zerosCol;
+                    col = i;
+                }
+            }
+            Matrix working;
+            if (maxZerosCol > maxZerosRow) {
+                working = m.getTransposed();
+                row = col;
+            } else {
+                working = (Matrix) (m.clone());
+            }
+        /*
+        ########################################
+                    up to here
+        ########################################
+         */
+            double result = 0;
+            boolean neg=true;
+            if(row%2==0) neg = false;
+            for (int i = 0; i < m.getSize()[0]; i++) {
+                if(neg) {
+                    result += m.get(row, i)*getDeterminant(m.getSmaller(row, i));
+                    neg=false;
+                }else{
+                    result -= m.get(row,i)*getDeterminant(m.getSmaller(row, i));
+                    neg=true;
+                }
+            }
+            return result;
+        }
+        return m.get(0,0)*m.get(1,1)-m.get(0,1)*m.get(1,0);
+    }
+
+    public static void main(String[] args){
+        Matrix m = new Matrix(new double[][]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}});
+        System.out.println(getDeterminant(m));
+        Matrix m2 = new Matrix(new double[][]{{1,2},{3,4}});
+        System.out.println(getDeterminant(m2));
+
+
+    }
 }
